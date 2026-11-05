@@ -16,16 +16,15 @@
 
 ---
 
-### Who I Am
+### About
 
-AI Engineer with production experience designing and deploying generative AI, multimodal systems, and computer vision pipelines.
+I'm an AI engineer and systems developer based in Surat, India. Over the past 8 months at **NexAI Labs**, my focus has been taking generative models off Jupyter notebooks and into production—building diffusion-based image and video pipelines for commercial garment and jewelry brands, running on AWS EC2 with FastAPI, Docker, and Cloudflare R2.
 
-Completing my Computer Engineering degree while delivering production pipelines across commercial brands.
+When I'm not tuning vision models or orchestrating multi-agent n8n workflows, I build full-stack systems—like an enterprise ERP syncing 100+ gaming PCs in real time via SignalR and Redis, or multimodal RAG engines that caption and index vector diagrams in research papers.
 
-* **NexAI Labs** &mdash; Diffusion model &amp; video generation pipelines for 5+ commercial brands (60% design time cut)
-* **B.E. Computer Engineering** &mdash; C.K. Pithawala College (CGPA: **8.41 / 10**)
-* **Google Cloud Certified** &mdash; 22 verified Skill Badges across Generative AI, Cloud Run, and Vision API
-* **Location:** Surat, India &bull; Open to relocation &bull; Available to join immediately
+* **Education:** B.E. in Computer Engineering &mdash; C.K. Pithawala College (CGPA: **8.41 / 10**, graduating 2026)
+* **Certifications:** Google Cloud Certified with 22 verified Skill Badges (GenAI with Gemini, Cloud Run, Vision API)
+* **Status:** Available immediately &bull; Open to full-time AI/ML, backend, and software engineering roles worldwide
 
 ---
 
