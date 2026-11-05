@@ -1,0 +1,70 @@
+<svg width="850" height="140" viewBox="0 0 850 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d111a"/>
+      <stop offset="100%" stop-color="#080a10"/>
+    </linearGradient>
+
+    <linearGradient id="cyanText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#4facfe"/>
+    </linearGradient>
+
+    <linearGradient id="purpleText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7928ca"/>
+    </linearGradient>
+
+    <linearGradient id="greenText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .metric-num {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      letter-spacing: -0.5px;
+    }
+    .metric-label {
+      font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      fill: #8b949e;
+      text-transform: uppercase;
+    }
+    .metric-desc {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      fill: #6e7681;
+    }
+  </style>
+
+  <!-- Card 1: Commits Velocity -->
+  <g transform="translate(0, 0)">
+    <rect x="2" y="2" width="270" height="136" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-opacity="0.6" stroke-width="1"/>
+    <text x="24" y="52" class="metric-num" fill="url(#cyanText)">1,030+</text>
+    <text x="24" y="80" class="metric-label">ANNUAL COMMITS</text>
+    <text x="24" y="104" class="metric-desc">High-velocity delivery across 14 repos</text>
+  </g>
+
+  <!-- Card 2: Academic & Credentials -->
+  <g transform="translate(288, 0)">
+    <rect x="2" y="2" width="270" height="136" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-opacity="0.6" stroke-width="1"/>
+    <text x="24" y="52" class="metric-num" fill="url(#purpleText)">8.41 / 10</text>
+    <text x="24" y="80" class="metric-label">ENGINEERING CGPA</text>
+    <text x="24" y="104" class="metric-desc">B.E. Computer Engg • 22 GCP Badges</text>
+  </g>
+
+  <!-- Card 3: Industry Production Impact -->
+  <g transform="translate(576, 0)">
+    <rect x="2" y="2" width="270" height="136" rx="12" fill="url(#cardBg)" stroke="#30363d" stroke-opacity="0.6" stroke-width="1"/>
+    <text x="24" y="52" class="metric-num" fill="url(#greenText)">60% Cut</text>
+    <text x="24" y="80" class="metric-label">DESIGN PIPELINE TIME</text>
+    <text x="24" y="104" class="metric-desc">NexAI Labs diffusion &amp; n8n pipelines</text>
+  </g>
+</svg>
