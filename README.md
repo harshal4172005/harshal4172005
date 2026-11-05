@@ -130,11 +130,6 @@ Both targeting production. Both active. Both shipping.
 ---
 
 <div align="center">
-
-<sub><i>"Ship it. Learn. Repeat."</i></sub>
-
-<br/><br/>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:312e81,60:1e1b4b,100:09090b&height=130&section=footer" width="100%"/>
-
+  <sub><i>"Ship it. Learn. Repeat."</i></sub><br/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:312e81,60:1e1b4b,100:09090b&height=65&section=footer" width="100%"/>
 </div>
