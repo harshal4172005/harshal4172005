@@ -16,37 +16,16 @@
 
 ---
 
-<table width="100%">
-<tr>
-<td valign="top" width="58%">
+### Who I Am
 
-### 🧑‍💻 Who I Am
+AI Engineer with production experience designing and deploying generative AI, multimodal systems, and computer vision pipelines.
 
-AI Engineer who ships real models into production — not tutorials.
+Completing my Computer Engineering degree while delivering production pipelines across commercial brands.
 
-Obsessed with generative AI, clean systems design, and computer vision pipelines. Completing my CS degree while deploying production pipelines across commercial brands.
-
-- 🏢 &nbsp;**NexAI Labs** — Diffusion model pipelines for 5+ brands · 60% design time cut
-- 🎓 &nbsp;**B.E. Computer Engineering** — C.K. Pithawala College · CGPA 8.41 / 10
-- ☁️ &nbsp;**Google Cloud** — 22 verified Skill Badges across GenAI & Vision API
-- 📍 &nbsp;Surat, India → shipping for the world
-
-</td>
-<td valign="top" width="42%">
-
-### 📦 Currently Building
-
-| | Project | What |
-|-|---------|------|
-| 🎮 | **[Gaming Cafe ERP](https://github.com/harshal4172005/APPLE-ESPORTS-GAMMING-SOFTWARE)** | Multi-branch .NET 8 + React |
-| 🧠 | **[Multimodal RAG](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Gemini Vision + Qdrant |
-| 👁️ | **[AI CCTV Safety](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Real-time PPE violation tracking |
-
-All 3 targeting production. Active and shipping.
-
-</td>
-</tr>
-</table>
+* **NexAI Labs** &mdash; Diffusion model &amp; video generation pipelines for 5+ commercial brands (60% design time cut)
+* **B.E. Computer Engineering** &mdash; C.K. Pithawala College (CGPA: **8.41 / 10**)
+* **Google Cloud Certified** &mdash; 22 verified Skill Badges across Generative AI, Cloud Run, and Vision API
+* **Location:** Surat, India &bull; Open to relocation &bull; Available to join immediately
 
 ---
 
