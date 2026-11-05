@@ -91,17 +91,17 @@
   <!-- Right Side Quick Contact Pills -->
   <g transform="translate(605, 30)">
     <!-- Email Pill -->
-    <a href="mailto:harshalparekh17@gmail.com" target="_blank">
+    <g>
       <rect x="0" y="0" width="245" height="28" rx="6" fill="#0d111c" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1"/>
       <circle cx="14" cy="14" r="3" fill="#38bdf8"/>
       <text x="26" y="18" class="contact-link">harshalparekh17@gmail.com</text>
-    </a>
+    </g>
 
     <!-- LinkedIn Pill -->
-    <a href="https://linkedin.com/in/harshal-p-parekh" target="_blank">
+    <g>
       <rect x="0" y="36" width="245" height="28" rx="6" fill="#0d111c" stroke="#818cf8" stroke-opacity="0.3" stroke-width="1"/>
       <circle cx="14" cy="50" r="3" fill="#818cf8"/>
       <text x="26" y="54" class="contact-link">linkedin.com/in/harshal-p-parekh</text>
-    </a>
+    </g>
   </g>
 </svg>
