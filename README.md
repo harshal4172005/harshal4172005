@@ -50,7 +50,7 @@ All 3 targeting production. Active and shipping.
 
 ---
 
-### 🛠 &nbsp;Stack
+### <img src="./assets/stack-icon.svg" width="22" height="22" valign="middle"/> &nbsp;Tech Stack
 
 <div align="center">
 
