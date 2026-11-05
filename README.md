@@ -123,6 +123,18 @@
 
 ---
 
+### 🐍 &nbsp;Contribution Matrix & Snake Eater
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake.svg">
+    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg" width="100%"/>
+  </picture>
+</div>
+
+---
+
 <div align="center">
 
 <sub><i>⚡ "Turning complex problems into clean, production-grade solutions." ⚡</i></sub>
