@@ -38,10 +38,11 @@ Obsessed with generative AI, clean systems design, and computer vision pipelines
 
 | | Project | What |
 |-|---------|------|
+| 🎮 | **[Gaming Cafe ERP](https://github.com/harshal4172005/APPLE-ESPORTS-GAMMING-SOFTWARE)** | Multi-branch .NET 8 + React |
 | 🧠 | **[Multimodal RAG](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Gemini Vision + Qdrant |
 | 👁️ | **[AI CCTV Safety](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Real-time PPE violation tracking |
 
-Both targeting production. Both active. Both shipping.
+All 3 targeting production. Active and shipping.
 
 </td>
 </tr>
@@ -88,14 +89,23 @@ Both targeting production. Both active. Both shipping.
 
 ---
 
-### 📂 &nbsp;Projects
+### 📂 &nbsp;Featured Projects (From Resume)
 
 | Project | Stack | Highlight |
 |---------|-------|-----------|
-| **[Multimodal RAG Assistant](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Python · LangChain · Gemini · Qdrant | Paper QA with Gemini Vision figure captioning & Groq/NVIDIA retry chain |
-| **[AI CCTV Safety Surveillance](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Python · YOLOv8 · PyTorch · OpenCV | Live WebRTC PPE detection (hard hats, vests, masks) with instant alerts |
+| **[Multi-Branch Gaming Cafe ERP](https://github.com/harshal4172005/APPLE-ESPORTS-GAMMING-SOFTWARE)** | C# · .NET 8 · React · SignalR · Redis · Docker | Full-stack ERP managing 100+ PCs across branches with live SignalR sync & remote lock/unlock agent |
+| **[Multimodal RAG Assistant](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Python · LangChain · FastAPI · Gemini · Qdrant | Paper QA with Gemini Vision figure captioning & Groq/NVIDIA retry chain |
+| **[AI CCTV Safety Surveillance](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Python · YOLOv8 · PyTorch · OpenCV · Streamlit | Live WebRTC PPE detection (hard hats, vests, masks) with instant alerts |
+
+<br/>
+
+### 🔬 &nbsp;Other Work & Experiments
+
+| Project | Stack | Highlight |
+|---------|-------|-----------|
 | **[Speech-to-Sign Language](https://github.com/harshal4172005/audio-speech-to-sign-language)** | Python · NLP · SpeechRecognition | Assistive tech converting verbal voice into real-time sign language |
 | **[Real-Time Stock Engine](https://github.com/harshal4172005/EXTRACT-REAL-TIME-DATA-OF-STOCK-S)** | Python · Google Finance · ETL | Streaming market data extraction and automated financial analysis |
+| **[Amazon Web Scraper](https://github.com/harshal4172005/scrapping-of-amazon-data-using-selenium)** | Python · Selenium · Automation | Resilient e-commerce scraper with dynamic rendering & anti-bot bypass |
 
 ---
 
