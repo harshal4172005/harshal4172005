@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero-header.svg" alt="Harshal Parekh — AI Engineer" width="100%"/>
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg" alt="Harshal Parekh — AI Engineer" width="100%"/>
 
 <br/>
 
@@ -30,7 +30,7 @@ When I'm not tuning vision models or orchestrating multi-agent n8n workflows, I 
 
 ---
 
-### <img src="./assets/stack-icon.svg" width="22" height="22" valign="middle"/> &nbsp;Tech Stack
+### <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/stack-icon.svg" width="22" height="22" valign="middle"/> &nbsp;Tech Stack
 
 <div align="center">
 
@@ -86,7 +86,7 @@ Client Prompt / Media
 
 ---
 
-### <img src="./assets/github-mark-white.svg" width="22" height="22" valign="middle"/> &nbsp;GitHub
+### <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/github-mark-white.svg" width="22" height="22" valign="middle"/> &nbsp;GitHub
 
 <div align="center">
 
@@ -115,7 +115,7 @@ Client Prompt / Media
 <br/>
 
 <a href="mailto:harshalparekh17@gmail.com">
-  <img src="./assets/footer.svg" alt="Harshal Parekh — Get In Touch" width="100%"/>
+  <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/footer.svg" alt="Harshal Parekh — Get In Touch" width="100%"/>
 </a>
 
 </div>
