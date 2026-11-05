@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:09090b,40:1e1b4b,100:312e81&height=240&section=header&text=Harshal%20Parekh&fontSize=70&fontColor=e0e7ff&fontAlignY=38&desc=AI%20Engineer%20%E2%80%A2%20Python%20Specialist%20%E2%80%A2%201%2C030%2B%20Commits&descAlignY=60&descSize=15&animation=fadeIn" width="100%"/>
+<img src="./assets/hero-header.svg" alt="Harshal Parekh — AI Engineer" width="100%"/>
+
+<br/>
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=15&duration=2800&pause=1200&color=818CF8&center=true&vCenter=true&repeat=true&width=620&height=45&lines=Building+Multimodal+AI+%E2%80%94+RAG+%2B+Gemini+Vision;AI+CCTV+Surveillance+%E2%80%94+Real-Time+PPE+Tracking;AI+Engineer+%40+NexAI+Labs+%E2%80%94+Diffusion+Pipelines;Shipping+in+prod%2C+not+just+in+theory" alt="Typing SVG" />
 
