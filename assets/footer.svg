@@ -1,0 +1,112 @@
+<svg width="880" height="120" viewBox="0 0 880 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090a10"/>
+      <stop offset="50%" stop-color="#0e121d"/>
+      <stop offset="100%" stop-color="#07080d"/>
+    </linearGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Ambient Glows -->
+    <radialGradient id="cyanGlow" cx="10%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="purpleGlow" cx="90%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Background Grid -->
+    <pattern id="footerGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#818cf8" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    .prompt-user {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 700;
+      font-size: 13px;
+      fill: #818cf8;
+    }
+    .prompt-path {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 500;
+      font-size: 13px;
+      fill: #64748b;
+    }
+    .prompt-cmd {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #38bdf8;
+    }
+    .prompt-arg {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 400;
+      font-size: 13px;
+      fill: #e2e8f0;
+    }
+    .sub-status {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      fill: #94a3b8;
+    }
+    .contact-link {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      fill: #cbd5e1;
+    }
+  </style>
+
+  <!-- Card Background -->
+  <rect x="2" y="2" width="876" height="116" rx="12" fill="url(#bgGrad)"/>
+  <rect x="2" y="2" width="876" height="116" rx="12" fill="url(#cyanGlow)"/>
+  <rect x="2" y="2" width="876" height="116" rx="12" fill="url(#purpleGlow)"/>
+  <rect x="2" y="2" width="876" height="116" rx="12" fill="url(#footerGrid)"/>
+  <rect x="2" y="2" width="876" height="116" rx="12" stroke="url(#borderGlow)" stroke-width="1.5"/>
+
+  <!-- Terminal Command Line (Row 1) -->
+  <g transform="translate(28, 42)">
+    <text class="prompt-user">harshal<tspan class="prompt-path">@nexai-labs:~$&#160;</tspan><tspan class="prompt-cmd">./dispatch.sh</tspan>&#160;<tspan class="prompt-arg">--goal=&quot;Ship high-impact AI systems into prod&quot;</tspan></text>
+  </g>
+
+  <!-- Status / Response (Row 2) -->
+  <g transform="translate(28, 76)">
+    <circle cx="5" cy="-4" r="4" fill="#10b981" filter="url(#glow)"/>
+    <circle cx="5" cy="-4" r="2.5" fill="#34d399"/>
+    <text x="18" y="0" class="sub-status">Ready for full-time AI/ML &amp; engineering opportunities &#8226; Surat &#8226; Remote worldwide</text>
+  </g>
+
+  <!-- Right Side Quick Contact Pills -->
+  <g transform="translate(605, 30)">
+    <!-- Email Pill -->
+    <a href="mailto:harshalparekh17@gmail.com" target="_blank">
+      <rect x="0" y="0" width="245" height="28" rx="6" fill="#0d111c" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1"/>
+      <circle cx="14" cy="14" r="3" fill="#38bdf8"/>
+      <text x="26" y="18" class="contact-link">harshalparekh17@gmail.com</text>
+    </a>
+
+    <!-- LinkedIn Pill -->
+    <a href="https://linkedin.com/in/harshal-p-parekh" target="_blank">
+      <rect x="0" y="36" width="245" height="28" rx="6" fill="#0d111c" stroke="#818cf8" stroke-opacity="0.3" stroke-width="1"/>
+      <circle cx="14" cy="50" r="3" fill="#818cf8"/>
+      <text x="26" y="54" class="contact-link">linkedin.com/in/harshal-p-parekh</text>
+    </a>
+  </g>
+</svg>

@@ -130,12 +130,12 @@
 
   <!-- Role Subtitle -->
   <text x="44" y="125" class="sub-role">
-    AI Engineer @ NexAI Labs &nbsp;•&nbsp; Python &amp; Vision Systems Specialist
+    AI Engineer @ NexAI Labs &#160;•&#160; Python &amp; Vision Systems Specialist
   </text>
 
   <!-- Secondary Metrics Line -->
   <text x="44" y="148" class="sub-detail">
-    1,030+ GitHub Contributions &nbsp;•&nbsp; B.E. Computer Engineering (8.41 CGPA) &nbsp;•&nbsp; 22 GCP Badges
+    1,030+ GitHub Contributions &#160;•&#160; B.E. Computer Engineering (8.41 CGPA) &#160;•&#160; 22 GCP Badges
   </text>
 
   <!-- Stack Pills Row -->

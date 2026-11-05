@@ -112,11 +112,10 @@ Client Prompt / Media
   <img alt="GitHub Contribution Snake" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg" width="100%"/>
 </picture>
 
-</div>
+<br/>
 
----
+<a href="mailto:harshalparekh17@gmail.com">
+  <img src="./assets/footer.svg" alt="Harshal Parekh — Get In Touch" width="100%"/>
+</a>
 
-<div align="center">
-  <sub><i>"Ship it. Learn. Repeat."</i></sub><br/>
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:312e81,60:1e1b4b,100:09090b&height=65&section=footer" width="100%"/>
 </div>
