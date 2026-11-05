@@ -99,7 +99,7 @@ Both targeting production. Both active. Both shipping.
 
 ---
 
-### 📊 &nbsp;GitHub
+### <img src="./assets/github-mark-white.svg" width="22" height="22" valign="middle"/> &nbsp;GitHub
 
 <div align="center">
 
