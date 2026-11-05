@@ -115,6 +115,20 @@ Both targeting production. Both active. Both shipping.
 
 ---
 
+### 🐍 &nbsp;Contribution Graph
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake.svg">
+  <img alt="GitHub Contribution Snake" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg" width="100%"/>
+</picture>
+
+</div>
+
+---
+
 <div align="center">
 
 <sub><i>"Ship it. Learn. Repeat."</i></sub>
