@@ -1,96 +1,126 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,8,24,30&height=220&section=header&text=HARSHAL%20PAREKH&fontSize=52&fontColor=ffffff&animation=twinkling&desc=AI%20Engineer%20%7C%20Python%20%26%20Vision%20Specialist&descSize=18&descAlignY=62" width="100%"/>
-</p>
+<div align="center">
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=38BDF8&center=true&vCenter=true&width=500&lines=AI+Engineer+%40+NexAI+Labs;Python+%26+Computer+Vision+Specialist;Multimodal+RAG+%2B+LangChain;1030%2B+Contributions+in+2026" alt="Typing SVG" />
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:09090b,40:1e1b4b,100:312e81&height=240&section=header&text=Harshal%20Parekh&fontSize=70&fontColor=e0e7ff&fontAlignY=38&desc=AI%20Engineer%20%E2%80%A2%20Python%20Specialist%20%E2%80%A2%201%2C030%2B%20Commits&descAlignY=60&descSize=15&animation=fadeIn" width="100%"/>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=harshal4172005&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=15&duration=2800&pause=1200&color=818CF8&center=true&vCenter=true&repeat=true&width=620&height=45&lines=Building+Multimodal+AI+%E2%80%94+RAG+%2B+Gemini+Vision;AI+CCTV+Surveillance+%E2%80%94+Real-Time+PPE+Tracking;AI+Engineer+%40+NexAI+Labs+%E2%80%94+Diffusion+Pipelines;Shipping+in+prod%2C+not+just+in+theory" alt="Typing SVG" />
 
-<p align="center">
-  <a href="https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf"><img src="https://img.shields.io/badge/Resume-PDF-7C3AED?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Resume" /></a>
-  <a href="https://linkedin.com/in/harshal-p-parekh"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-  <a href="mailto:harshalparekh17@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  <a href="https://github.com/harshal4172005/harshal-parekh-potfolio"><img src="https://img.shields.io/badge/Portfolio-00C7B7?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>
-</p>
+<br/>
+
+[![Resume](https://img.shields.io/badge/Resume-7C3AED?style=flat-square&logo=adobeacrobatreader&logoColor=white)](https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/harshal-p-parekh)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:harshalparekh17@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-ffffff?style=flat-square&logo=github&logoColor=black)](https://github.com/harshal4172005)
+![Location](https://img.shields.io/badge/Surat%2C%20India-1e1b4b?style=flat-square&logoColor=818cf8)
+
+</div>
 
 ---
 
-### About Me
+<table width="100%">
+<tr>
+<td valign="top" width="58%">
 
-* **AI Engineer @ NexAI Labs** &mdash; built diffusion model image &amp; video pipelines, cutting manual design effort by 60%.
-* **Primary Language:** Python &mdash; focused on LangChain, FastAPI, PyTorch, YOLOv8, and OpenCV.
-* **Academic:** Final-year B.E. in Computer Engineering @ C.K. Pithawala College (CGPA: **8.41 / 10**).
-* **Certifications:** Google Cloud Certified with 22 Skill Badges in Generative AI, Cloud Run, and Vision API.
-* **Velocity:** **1,030+ GitHub contributions** in 2026 across 14+ repositories.
-* **Status:** Based in Surat, India &bull; Open to relocation &bull; Available to join immediately.
+### 🧑‍💻 Who I Am
 
----
+AI Engineer who ships real models into production — not tutorials.
 
-### Tech Stack
+Obsessed with generative AI, clean systems design, and computer vision pipelines. Completing my CS degree while deploying production pipelines across commercial brands.
 
-<p align="center">
-  <b>Languages &amp; Core</b><br/>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
-  <img src="https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
-</p>
+- 🏢 &nbsp;**NexAI Labs** — Diffusion model pipelines for 5+ brands · 60% design time cut
+- 🎓 &nbsp;**B.E. Computer Engineering** — C.K. Pithawala College · CGPA 8.41 / 10
+- ☁️ &nbsp;**Google Cloud** — 22 verified Skill Badges across GenAI & Vision API
+- 📍 &nbsp;Surat, India → shipping for the world
 
-<p align="center">
-  <b>AI, Machine Learning &amp; Frameworks</b><br/>
-  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white"/>
-  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white"/>
-  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white"/>
-  <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white"/>
-</p>
+</td>
+<td valign="top" width="42%">
 
-<p align="center">
-  <b>Databases, Cloud &amp; DevOps</b><br/>
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=google-cloud&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black"/>
-</p>
+### 📦 Currently Building
+
+| | Project | What |
+|-|---------|------|
+| 🧠 | **[Multimodal RAG](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Gemini Vision + Qdrant |
+| 👁️ | **[AI CCTV Safety](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Real-time PPE violation tracking |
+
+Both targeting production. Both active. Both shipping.
+
+</td>
+</tr>
+</table>
 
 ---
 
-### Featured Projects
+### 🛠 &nbsp;Stack
 
-<p align="center">
-  <a href="https://github.com/harshal4172005/multimodal-ai-research-rag">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=harshal4172005&repo=multimodal-ai-research-rag&theme=tokyonight&show_owner=false" alt="Multimodal RAG" />
-  </a>
-  <a href="https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=harshal4172005&repo=AI-CCTV-SURVEILLANCE-&theme=tokyonight&show_owner=false" alt="AI CCTV Surveillance" />
-  </a>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/harshal4172005/audio-speech-to-sign-language">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=harshal4172005&repo=audio-speech-to-sign-language&theme=tokyonight&show_owner=false" alt="Speech to Sign" />
-  </a>
-  <a href="https://github.com/harshal4172005/EXTRACT-REAL-TIME-DATA-OF-STOCK-S">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=harshal4172005&repo=EXTRACT-REAL-TIME-DATA-OF-STOCK-S&theme=tokyonight&show_owner=false" alt="Real-Time Stocks" />
-  </a>
-</p>
+**AI / Machine Learning / Vision**
+
+<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,opencv&theme=dark&perline=4"/>
+
+**Backend, Data & Cloud**
+
+<img src="https://skillicons.dev/icons?i=fastapi,flask,postgres,docker,aws,gcp&theme=dark&perline=6"/>
+
+**Languages & Tools**
+
+<img src="https://skillicons.dev/icons?i=js,html,css,git,github,linux&theme=dark&perline=6"/>
+
+</div>
 
 ---
 
-### GitHub Stats
+### 🏆 &nbsp;Highlight
 
-<p align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=harshal4172005&show_icons=true&theme=tokyonight&hide_border=true&hide_rank=true" alt="GitHub Stats" />
-</p>
+```
+🚀  AI Engineer — NexAI Labs (Nov 2025 – Apr 2026)
+    Surat, India · Production Generative AI Pipelines
+    ──────────────────────────────────────────────────────────────
 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,8,24,30&height=100&section=footer" width="100%"/>
-</p>
+    Diffusion model & video generation pipelines for 5+ garment
+    and jewellery brands · n8n multi-agent orchestration
+
+    Design Effort Cut        ████████████████████░  60.0%
+    Client Delivery Speedup  ██████████████░░░░░░░  40.0%
+    Annual Contributions     █████████████████████  1,030+
+
+    Deployed on AWS EC2 · FastAPI · Cloudflare R2 · S3 Storage
+```
+
+---
+
+### 📂 &nbsp;Projects
+
+| Project | Stack | Highlight |
+|---------|-------|-----------|
+| **[Multimodal RAG Assistant](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Python · LangChain · Gemini · Qdrant | Paper QA with Gemini Vision figure captioning & Groq/NVIDIA retry chain |
+| **[AI CCTV Safety Surveillance](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Python · YOLOv8 · PyTorch · OpenCV | Live WebRTC PPE detection (hard hats, vests, masks) with instant alerts |
+| **[Speech-to-Sign Language](https://github.com/harshal4172005/audio-speech-to-sign-language)** | Python · NLP · SpeechRecognition | Assistive tech converting verbal voice into real-time sign language |
+| **[Real-Time Stock Engine](https://github.com/harshal4172005/EXTRACT-REAL-TIME-DATA-OF-STOCK-S)** | Python · Google Finance · ETL | Streaming market data extraction and automated financial analysis |
+
+---
+
+### 📊 &nbsp;GitHub
+
+<div align="center">
+
+<img height="160" src="https://github-stats-extended.vercel.app/api?username=harshal4172005&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&icon_color=818cf8&text_color=a1a1aa&hide_rank=true" alt="GitHub Stats"/>
+&nbsp;
+<img height="160" src="https://github-stats-extended.vercel.app/api/top-langs/?username=harshal4172005&layout=compact&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&text_color=a1a1aa&langs_count=8&hide=c%23,html,css" alt="Top Languages"/>
+
+<br/>
+
+<img width="68%" src="https://streak-stats.demolab.com?user=harshal4172005&theme=midnight-purple&hide_border=true&background=09090b&ring=818cf8&fire=c084fc&currStreakLabel=818cf8&sideLabels=818cf8&dates=71717a" alt="GitHub Streak"/>
+
+</div>
+
+---
+
+<div align="center">
+
+<sub><i>"Ship it. Learn. Repeat."</i></sub>
+
+<br/><br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:312e81,60:1e1b4b,100:09090b&height=130&section=footer" width="100%"/>
+
+</div>
