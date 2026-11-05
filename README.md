@@ -1,12 +1,8 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=2" alt="Harshal Parekh — AI Engineer" width="100%"/>
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=5" alt="Harshal Parekh — AI Engineer · Diffusion · Vision · Multimodal RAG" width="100%"/>
 
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=15&duration=2800&pause=1200&color=818CF8&center=true&vCenter=true&repeat=true&width=620&height=45&lines=Building+Multimodal+AI+%E2%80%94+RAG+%2B+Gemini+Vision;AI+CCTV+Surveillance+%E2%80%94+Real-Time+PPE+Tracking;AI+Engineer+%40+NexAI+Labs+%E2%80%94+Diffusion+Pipelines;Shipping+in+prod%2C+not+just+in+theory" alt="Typing SVG" />
-
-<br/>
+<br/><br/>
 
 [![Resume](https://img.shields.io/badge/Resume-7C3AED?style=flat-square&logo=adobeacrobatreader&logoColor=white)](https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/harshal-p-parekh)
@@ -115,7 +111,7 @@ Client Prompt / Media
 <br/>
 
 <a href="mailto:harshalparekh17@gmail.com">
-  <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/footer.svg?v=2" alt="Harshal Parekh — Get In Touch" width="100%"/>
+  <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/dispatch-bar.svg?v=5" alt="Engineer().hire() → 200 OK · harshalparekh17@gmail.com" width="100%"/>
 </a>
 
 </div>
