@@ -24,6 +24,12 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
+      - name: Remove bottom loading bar
+        run: |
+          sed -i -E 's/<rect class="u [^"]*"[^>]*\/>//g' dist/*.svg
+          sed -i 's/height="192"/height="148"/g' dist/*.svg
+          sed -i 's/viewBox="-16 -32 880 192"/viewBox="-16 -32 880 148"/g' dist/*.svg
+
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
