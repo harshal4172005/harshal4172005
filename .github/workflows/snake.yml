@@ -4,9 +4,6 @@ on:
   schedule:
     - cron: "0 0 * * *"   # runs daily at midnight UTC
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   generate:
@@ -26,6 +23,7 @@ jobs:
 
       - name: Remove bottom loading bar
         run: |
+          sudo chmod -R 777 dist
           sed -i -E 's/<rect class="u [^"]*"[^>]*\/>//g' dist/*.svg
           sed -i 's/height="192"/height="148"/g' dist/*.svg
           sed -i 's/viewBox="-16 -32 880 192"/viewBox="-16 -32 880 148"/g' dist/*.svg
