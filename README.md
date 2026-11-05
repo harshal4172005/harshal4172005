@@ -70,21 +70,18 @@ All 3 targeting production. Active and shipping.
 
 ---
 
-### 🏆 &nbsp;Highlight
+### ⚡ &nbsp;Production Architecture @ NexAI Labs
 
 ```
-🚀  AI Engineer — NexAI Labs (Nov 2025 – Apr 2026)
-    Surat, India · Production Generative AI Pipelines
-    ──────────────────────────────────────────────────────────────
-
-    Diffusion model & video generation pipelines for 5+ garment
-    and jewellery brands · n8n multi-agent orchestration
-
-    Design Effort Cut        ████████████████████░  60.0%
-    Client Delivery Speedup  ██████████████░░░░░░░  40.0%
-    Annual Contributions     █████████████████████  1,030+
-
-    Deployed on AWS EC2 · FastAPI · Cloudflare R2 · S3 Storage
+Client Prompt / Media
+         │
+         ▼
+[ n8n Multi-Agent Router ] ──▶ [ Diffusion Pipeline ] ──▶ AWS S3
+         │                               │
+         ▼                               ▼
+[ FastAPI Microservice ]   ──▶ [ Video Generation ]    ──▶ Cloudflare R2
+         │
+         └──▶ 5+ Commercial Brands · 60% Faster Turnaround · Docker on EC2
 ```
 
 ---
