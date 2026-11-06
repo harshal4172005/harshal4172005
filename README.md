@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=121b82ea3836" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=b17d3b580cbb" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -63,16 +63,16 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=8c5179eb6609" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. API totals may differ from signed-in totals." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=669533a29a62" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. API totals may differ from signed-in totals." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
 
 <!-- ACTIVITY:START -->
+- [647bfb7](https://github.com/harshal4172005/harshal4172005/commit/647bfb79e8bda822a73c6f21b6b7b92564fd252a) · `harshal4172005` · 2026-11-06
 - [7865149](https://github.com/harshal4172005/harshal4172005/commit/7865149e10f12b98faecfb050e34a3530a8c6ea6) · `harshal4172005` · 2026-11-06
 - [28979d8](https://github.com/harshal4172005/harshal4172005/commit/28979d8aaba95633e08feadc8a85613612854265) · `harshal4172005` · 2026-11-06
 - [45246dd](https://github.com/harshal4172005/harshal4172005/commit/45246dd13532d5bd4e844af3697fae37b4aead41) · `harshal4172005` · 2026-11-06
-- [9f0a7c8](https://github.com/harshal4172005/harshal4172005/commit/9f0a7c8285a2be67053182d0ef62ede638690860) · `harshal4172005` · 2026-11-06
 <!-- ACTIVITY:END -->
 
 The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts reflect API access and may differ from signed-in GitHub totals; private repository details are never published.
