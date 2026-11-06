@@ -1,6 +1,6 @@
 {
-  "commits": 521,
-  "contributions": 1060,
+  "commits": 522,
+  "contributions": 1061,
   "issues": 1,
   "languages": [
     {
@@ -14,7 +14,7 @@
       "name": "JavaScript"
     },
     {
-      "bytes": 172528,
+      "bytes": 173670,
       "color": "#3572A5",
       "name": "Python"
     },
@@ -61,9 +61,16 @@
   ],
   "private_contributions": 529,
   "prs": 1,
-  "public_contributions": 531,
+  "public_contributions": 532,
   "public_repos": 13,
   "recent_commits": [
+    {
+      "committedDate": "2026-11-06T18:20:33Z",
+      "messageHeadline": "Show combined public and private contribution totals and refresh ever…",
+      "oid": "0aa692edeb54a01f7368a19e0027b5e3d3c034c1",
+      "repo": "harshal4172005",
+      "url": "https://github.com/harshal4172005/harshal4172005/commit/0aa692edeb54a01f7368a19e0027b5e3d3c034c1"
+    },
     {
       "committedDate": "2026-11-06T18:06:30Z",
       "messageHeadline": "Use fresh image paths for live commit header and capability ascent",
@@ -84,13 +91,6 @@
       "oid": "7865149e10f12b98faecfb050e34a3530a8c6ea6",
       "repo": "harshal4172005",
       "url": "https://github.com/harshal4172005/harshal4172005/commit/7865149e10f12b98faecfb050e34a3530a8c6ea6"
-    },
-    {
-      "committedDate": "2026-11-06T17:55:05Z",
-      "messageHeadline": "Replace plain contact links with matching animated contact cards",
-      "oid": "28979d8aaba95633e08feadc8a85613612854265",
-      "repo": "harshal4172005",
-      "url": "https://github.com/harshal4172005/harshal4172005/commit/28979d8aaba95633e08feadc8a85613612854265"
     }
   ],
   "stars": 1,
@@ -100,7 +100,7 @@
     "calendar_timezone": "UTC",
     "current": 3,
     "longest": 15,
-    "today": 29
+    "today": 30
   },
   "weeks": [
     {
@@ -1646,11 +1646,11 @@
           "date": "2026-10-04"
         },
         {
-          "contributionCount": 21,
+          "contributionCount": 22,
           "date": "2026-10-05"
         },
         {
-          "contributionCount": 5,
+          "contributionCount": 4,
           "date": "2026-10-06"
         },
         {
@@ -1790,7 +1790,7 @@
           "date": "2026-11-05"
         },
         {
-          "contributionCount": 29,
+          "contributionCount": 30,
           "date": "2026-11-06"
         }
       ]
