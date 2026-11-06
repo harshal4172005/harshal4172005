@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-live-commits.svg?v=7b9e35157d67" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=7cc3065d3b5d" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -63,7 +63,7 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=ba1dd8c47640" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. API totals may differ from signed-in totals." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=820276f72d45" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
@@ -75,15 +75,15 @@ The animations illustrate system behavior. They are not live camera feeds, model
 - [28979d8](https://github.com/harshal4172005/harshal4172005/commit/28979d8aaba95633e08feadc8a85613612854265) · `harshal4172005` · 2026-11-06
 <!-- ACTIVITY:END -->
 
-The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts reflect API access and may differ from signed-in GitHub totals; private repository details are never published.
+The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts include public and shared private activity; private repository details are never published.
 
 The commit feed samples your latest 12 commits per public default branch and shows the four most recent authored commits. Language share measures code bytes across public owned non-fork repositories, using each repo's top 20 languages; it isn't a skill rating. No languages are hidden to inflate a percentage.
 
 **Daily streaks:** today's contributions, current streak, longest streak in the past year, and active days are recalculated on each refresh. Streaks use GitHub calendar dates (UTC). If you contributed yesterday, your current streak stays alive while today is still open; a missed day resets it. Only contributions included by GitHub's API count, so an unmerged feature-branch commit may not appear yet.
 
-**Header commits:** the header shows GitHub API-visible commit contributions over the past year, separately from total contributions (which also include other activity). The counter refreshes automatically with the dashboard; private commits need a user token with the required access.
+**Total contributions:** the header and dashboard show the same combined public + private total from GitHub's past-year contribution calendar. Private contributions are included as anonymized counts while GitHub's **Contribution settings → Private contributions** option is enabled. This is fetched automatically, not fixed to a manually entered number. The dashboard also shows the public/private breakdown.
 
-**Refresh behavior:** pushes to this profile trigger a rebuild. Activity in other public repositories is checked at minutes 17 and 47 each hour; GitHub may delay scheduled runs and cache refreshed images. Branch commits appear in the feed when they reach a default branch. Manual refresh: [Living engineering profile](https://github.com/harshal4172005/harshal4172005/actions/workflows/update-stats.yml). A `repository_dispatch` event of type `profile-activity` can also trigger a refresh.
+**Refresh behavior:** pushes to this profile trigger a rebuild. Contribution activity is checked every 10 minutes; GitHub may delay scheduled runs and cache refreshed images. Branch commits appear in the feed when they reach a default branch. Manual refresh: [Living engineering profile](https://github.com/harshal4172005/harshal4172005/actions/workflows/update-stats.yml). A `repository_dispatch` event of type `profile-activity` can also trigger a refresh.
 
 [Generator](scripts/generate_stats.py) · [Data snapshot](data/activity.json) · [Illustration source](scripts/design.py)
 
