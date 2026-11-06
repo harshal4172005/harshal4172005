@@ -2,7 +2,12 @@
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=claude2" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
-<p><a href="mailto:harshalparekh17@gmail.com">Email</a> &nbsp; / &nbsp; <a href="https://linkedin.com/in/harshal-p-parekh">LinkedIn</a> &nbsp; / &nbsp; <a href="https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf">Resume</a> &nbsp; / &nbsp; <a href="https://github.com/harshal4172005?tab=repositories">Source code</a></p>
+<p align="center">
+<a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
+<a href="https://linkedin.com/in/harshal-p-parekh"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-linkedin.svg?v=1" width="24%" alt="Connect on LinkedIn" /></a>
+<a href="https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-resume.svg?v=1" width="24%" alt="Read Harshal Parekh’s resume" /></a>
+<a href="https://github.com/harshal4172005?tab=repositories"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-source.svg?v=1" width="24%" alt="Explore the source code" /></a>
+</p>
 
 </div>
 
