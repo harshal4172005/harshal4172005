@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-readable.svg?v=0cc1ecc38a8b" width="100%" alt="Harshal Parekh — AI engineer. Live combined public and private contributions." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-readable.svg?v=d265cbde0c2b" width="100%" alt="Harshal Parekh — AI engineer. Live combined public and private contributions." />
 
 <p align="center">
 
@@ -96,12 +96,12 @@ Live WebRTC PPE detection for hard hats, vests and masks, with alerts and audit 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/readable-sec-05.svg?v=readable1" width="100%" alt="05 Live GitHub activity" />
 
 <!-- METRICS:START -->
-**Total contributions: 1,061** — 532 public + 529 private.
+**Total contributions: 1,062** — 533 public + 529 private.
 
 **Today:** 30 contributions · **Current streak:** 3 days · **Longest streak:** 15 days in the past year.
 <!-- METRICS:END -->
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-readable.svg?v=0abdc521629b" width="100%" alt="Live combined public and private contributions, daily streaks, authored commits and language bytes." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-readable.svg?v=26e144e26c30" width="100%" alt="Live combined public and private contributions, daily streaks, authored commits and language bytes." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
