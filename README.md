@@ -101,16 +101,16 @@ Live WebRTC PPE detection for hard hats, vests and masks, with alerts and audit 
 **Today:** 30 contributions · **Current streak:** 3 days · **Longest streak:** 15 days in the past year.
 <!-- METRICS:END -->
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-readable.svg?v=7bf8f5cc0775" width="100%" alt="Live combined public and private contributions, daily streaks, authored commits and language bytes." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-readable.svg?v=0abdc521629b" width="100%" alt="Live combined public and private contributions, daily streaks, authored commits and language bytes." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
 
 <!-- ACTIVITY:START -->
+- [17a4b51](https://github.com/harshal4172005/harshal4172005/commit/17a4b513ecd17036074978474f97d0cd98090ec3) · `harshal4172005` · 2026-11-06
 - [0aa692e](https://github.com/harshal4172005/harshal4172005/commit/0aa692edeb54a01f7368a19e0027b5e3d3c034c1) · `harshal4172005` · 2026-11-06
 - [34ed6fd](https://github.com/harshal4172005/harshal4172005/commit/34ed6fdd9ca24b3ca0b6becb6052f40cbd170907) · `harshal4172005` · 2026-11-06
 - [647bfb7](https://github.com/harshal4172005/harshal4172005/commit/647bfb79e8bda822a73c6f21b6b7b92564fd252a) · `harshal4172005` · 2026-11-06
-- [7865149](https://github.com/harshal4172005/harshal4172005/commit/7865149e10f12b98faecfb050e34a3530a8c6ea6) · `harshal4172005` · 2026-11-06
 <!-- ACTIVITY:END -->
 
 The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts include public and shared private activity; private repository details are never published.
