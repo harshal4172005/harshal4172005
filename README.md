@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-readable.svg?v=d265cbde0c2b" width="100%" alt="Harshal Parekh — AI engineer. Live combined public and private contributions." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-readable.svg?v=c89a25223473" width="100%" alt="Harshal Parekh — AI engineer. Live combined public and private contributions." />
 
 <p align="center">
 
@@ -96,21 +96,21 @@ Live WebRTC PPE detection for hard hats, vests and masks, with alerts and audit 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/readable-sec-05.svg?v=readable1" width="100%" alt="05 Live GitHub activity" />
 
 <!-- METRICS:START -->
-**Total contributions: 1,062** — 533 public + 529 private.
+**Total contributions: 1,061** — 532 public + 529 private.
 
 **Today:** 30 contributions · **Current streak:** 3 days · **Longest streak:** 15 days in the past year.
 <!-- METRICS:END -->
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-readable.svg?v=26e144e26c30" width="100%" alt="Live combined public and private contributions, daily streaks, authored commits and language bytes." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-readable.svg?v=f4a4d9de7221" width="100%" alt="Live combined public and private contributions, daily streaks, authored commits and language bytes." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
 
 <!-- ACTIVITY:START -->
+- [4bdb8ee](https://github.com/harshal4172005/harshal4172005/commit/4bdb8ee55f66be8532df6808551fab4a4816f6bf) · `harshal4172005` · 2026-11-06
 - [17a4b51](https://github.com/harshal4172005/harshal4172005/commit/17a4b513ecd17036074978474f97d0cd98090ec3) · `harshal4172005` · 2026-11-06
 - [0aa692e](https://github.com/harshal4172005/harshal4172005/commit/0aa692edeb54a01f7368a19e0027b5e3d3c034c1) · `harshal4172005` · 2026-11-06
 - [34ed6fd](https://github.com/harshal4172005/harshal4172005/commit/34ed6fdd9ca24b3ca0b6becb6052f40cbd170907) · `harshal4172005` · 2026-11-06
-- [647bfb7](https://github.com/harshal4172005/harshal4172005/commit/647bfb79e8bda822a73c6f21b6b7b92564fd252a) · `harshal4172005` · 2026-11-06
 <!-- ACTIVITY:END -->
 
 The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts include public and shared private activity; private repository details are never published.
