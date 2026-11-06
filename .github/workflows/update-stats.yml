@@ -1,38 +1,45 @@
-name: Sync Real-Time GitHub Stats
+name: Living engineering profile
 
 on:
   schedule:
-    - cron: "0 */4 * * *"   # runs every 4 hours
+    - cron: '17,47 * * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types: [profile-activity]
   push:
-    branches:
-      - main
-    paths:
-      - 'scripts/**'
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: living-profile
+  cancel-in-progress: false
 
 jobs:
-  update-stats:
+  refresh:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 10
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Generate Verified Stats SVG
+      - name: Verify activity renderer
+        run: python -m unittest discover -s tests -v
+      - name: Fetch GitHub data and render activity
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_stats.py
+      - name: Publish only when activity changes
         run: |
-          python scripts/generate_stats.py
-
-      - name: Commit & Push Changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add assets/github-stats.svg assets/top-langs.svg
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(stats): auto-sync verified engineering metrics [skip ci]" && git push)
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/activity-field.svg data/activity.json README.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(activity): refresh engineering field'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

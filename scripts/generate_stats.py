@@ -1,196 +1,154 @@
-import os
+"""Verified activity renderer. Standard library only; failures preserve the last snapshot."""
+import collections
+import hashlib
+import html
 import json
-import urllib.request
+import math
+import os
+from pathlib import Path
 import subprocess
+import time
+import urllib.request
+import xml.etree.ElementTree as ET
 
-def fetch_data():
-    token = os.environ.get("GITHUB_TOKEN")
-    headers = {"User-Agent": "Mozilla/5.0"}
-    if token:
-        headers["Authorization"] = f"token {token}"
-
-    total_contributions = 1050
-    total_stars = 1
-    total_prs = 1
-    total_issues = 1
-    contributed_to = 8
-
-    # Query GraphQL if gh or token is available
-    try:
-        query = """query {
-          viewer {
-            contributionsCollection {
-              totalCommitContributions
-              restrictedContributionsCount
-              totalPullRequestContributions
-              totalIssueContributions
-              totalRepositoriesWithContributedCommits
-            }
-          }
-        }"""
-        p = subprocess.run(["gh", "api", "graphql", "-f", f"query={query}"], capture_output=True, text=True)
-        if p.returncode == 0:
-            data = json.loads(p.stdout)
-            coll = data["data"]["viewer"]["contributionsCollection"]
-            pub = coll.get("totalCommitContributions", 512)
-            priv = coll.get("restrictedContributionsCount", 529)
-            prs = coll.get("totalPullRequestContributions", 1)
-            issues = coll.get("totalIssueContributions", 1)
-            contributed_to = coll.get("totalRepositoriesWithContributedCommits", 8)
-            if pub + priv >= 1000:
-                total_contributions = pub + priv + prs + issues
-                total_prs = prs
-                total_issues = issues
-    except Exception as e:
-        print(f"GraphQL check: {e}")
-
-    return {
-        "stars": total_stars,
-        "contributions": f"{total_contributions:,}",
-        "prs": total_prs,
-        "issues": total_issues,
-        "contributed_to": contributed_to,
-        "python_pct": "90.44%",
-        "sql_pct": "5.26%",
-        "docker_pct": "4.30%"
+ROOT = Path(__file__).resolve().parents[1]
+USER = 'harshal4172005'
+QUERY = '''query { user(login:"harshal4172005") {
+  contributionsCollection { contributionCalendar { totalContributions weeks {
+    contributionDays { date contributionCount }
+  } } totalPullRequestContributions totalIssueContributions }
+  repositories(first:100,privacy:PUBLIC,ownerAffiliations:OWNER,
+    orderBy:{field:PUSHED_AT,direction:DESC}) {
+    pageInfo { hasNextPage }
+    nodes { name url isFork stargazerCount pushedAt
+      languages(first:20,orderBy:{field:SIZE,direction:DESC}) {
+        edges { size node { name color } }
+      }
+      defaultBranchRef { target { ... on Commit { history(first:12) {
+        nodes { oid messageHeadline committedDate url author { user { login } } }
+      } } } }
     }
+  }
+} }'''
 
-def generate_stats_svg(data, output_path):
-    svg = f"""<svg width="440" height="195" viewBox="0 0 440 195" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .header {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      fill: #818cf8;
-      letter-spacing: 0.2px;
-    }}
-    .stat-label {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 500;
-      font-size: 13px;
-      fill: #a1a1aa;
-    }}
-    .stat-value {{
-      font-family: "JetBrains Mono", Consolas, monospace;
-      font-weight: 700;
-      font-size: 13px;
-      fill: #f1f5f9;
-    }}
-    .stat-highlight {{
-      font-family: "JetBrains Mono", Consolas, monospace;
-      font-weight: 800;
-      font-size: 15px;
-      fill: #38bdf8;
-    }}
-    .icon {{
-      fill: #818cf8;
-    }}
-  </style>
+def fetch():
+    token = os.environ.get('GITHUB_TOKEN')
+    for attempt in range(3):
+        try:
+            if token:
+                req = urllib.request.Request('https://api.github.com/graphql',
+                    data=json.dumps({'query':QUERY}).encode(),
+                    headers={'Authorization':f'Bearer {token}',
+                             'Content-Type':'application/json', 'User-Agent':'harshal-profile'})
+                with urllib.request.urlopen(req, timeout=60) as response:
+                    result = json.load(response)
+            else:
+                result = json.loads(subprocess.run(
+                    ['gh','api','graphql','-f','query='+QUERY],check=True,
+                    capture_output=True,text=True,encoding='utf-8').stdout)
+            if result.get('errors'):
+                raise RuntimeError('GitHub GraphQL returned errors; preserving previous snapshot')
+            return result['data']['user']
+        except Exception:
+            if attempt == 2: raise
+            time.sleep(2 ** attempt)
 
-  <rect x="0.5" y="0.5" width="439" height="194" rx="6" fill="#09090b" stroke="#1e293b" stroke-width="1"/>
+def normalize(user):
+    if user['repositories']['pageInfo']['hasNextPage']:
+        raise RuntimeError('More than 100 repositories: add pagination before publishing totals')
+    repos = user['repositories']['nodes']
+    original = [r for r in repos if not r['isFork']]
+    langs=collections.Counter(); colors={}; commits=[]
+    for r in original:
+        for e in r['languages']['edges']:
+            name=e['node']['name']
+            langs[name]+=e['size']; colors[name]=e['node']['color'] or '#a9baff'
+    for r in repos:
+        branch=r.get('defaultBranchRef')
+        if not branch: continue
+        for c in branch['target']['history']['nodes']:
+            author=c.get('author') or {}
+            if (author.get('user') or {}).get('login','').lower()!=USER: continue
+            if r['name']==USER and c['messageHeadline'].startswith('chore(activity):'): continue
+            commits.append({**{k:c[k] for k in ['oid','messageHeadline','committedDate','url']},'repo':r['name']})
+    commits=sorted(commits,key=lambda c:c['committedDate'],reverse=True)
+    unique={}
+    for c in commits: unique.setdefault(c['oid'],c)
+    coll=user['contributionsCollection']
+    return {'contributions':coll['contributionCalendar']['totalContributions'],
+            'weeks':coll['contributionCalendar']['weeks'],
+            'prs':coll['totalPullRequestContributions'],
+            'issues':coll['totalIssueContributions'],
+            'public_repos':len(repos),'stars':sum(r['stargazerCount'] for r in original),
+            'languages':[{'name':n,'bytes':v,'color':colors[n]} for n,v in langs.most_common()],
+            'recent_commits':list(unique.values())[:4]}
 
-  <g transform="translate(25, 32)">
-    <text class="header">HARSHAL PAREKH's GitHub Stats</text>
-  </g>
+def t(s,x,y,size=14,color='#eeeae0'):
+    return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}">{html.escape(str(s))}</text>'
 
-  <g transform="translate(25, 62)">
-    <path class="icon" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/>
-    <text x="24" y="11" class="stat-label">Total Stars Earned:</text>
-    <text x="390" y="11" class="stat-value" text-anchor="end">{data['stars']}</text>
-  </g>
+def render(data):
+    c=t('04 / THE LIVING REPOSITORY',32,39,18,'#d4fc67')
+    c+=t('GITHUB DATA / CHECKED EVERY 30 MIN',777,39,12,'#92999e')
+    c+='<path d="M32 62H1168" stroke="#343b42"/>'
+    for x,num,label in [(32,data['contributions'],'CONTRIBUTIONS / PAST YEAR'),(450,data['public_repos'],'PUBLIC REPOSITORIES'),(870,data['stars'],'STARS / OWNED NON-FORKS')]:
+        c+=t(f'{num:,}',x,127,47)+t(label,x,153,12,'#92999e')
+    c+=t('COMMIT TOPOGRAPHY',32,201,12,'#d4fc67')
+    c+=t('Each ridge is a week. Height follows contribution count.',32,224,12,'#92999e')
+    weeks=data['weeks'][-53:]
+    maximum=max([d['contributionCount'] for w in weeks for d in w['contributionDays']]+[1])
+    for i,w in enumerate(weeks):
+        base_x=43+i*17.6; base_y=360-i*.91; pts=[]
+        for j in range(7):
+            days=w['contributionDays']
+            count=days[j]['contributionCount'] if j<len(days) else 0
+            height=math.log1p(count)/math.log1p(maximum)*78
+            pts.append((base_x+j*20,base_y+j*9-height))
+        path='M'+' L'.join(f'{x:.1f} {y:.1f}' for x,y in pts)
+        c+=f'<path d="{path}" fill="none" stroke="{"#d4fc67" if i==len(weeks)-1 else "#a9baff"}" stroke-width="{2 if i==len(weeks)-1 else 1}" opacity="{.3+.7*i/len(weeks):.2f}"/>'
+    if weeks: c+=f'<circle r="3" fill="#d4fc67"><animateMotion dur="7s" repeatCount="indefinite" path="{path}"/></circle>'
+    c+=t('OLDER',33,446,11,'#92999e')+t('LATEST ->',1010,446,11,'#d4fc67')
+    c+='<path d="M32 469H1168" stroke="#343b42"/>'
+    c+=t('LATEST AUTHORED COMMITS / PUBLIC DEFAULT BRANCHES',32,500,12,'#d4fc67')
+    for i,commit in enumerate(data['recent_commits']):
+        y=536+i*53; title=commit['messageHeadline']
+        if len(title)>78: title=title[:75]+'...'
+        c+=t(commit['oid'][:7],32,y,13,'#a9baff')+t(title,145,y,14)
+        c+=t(commit['repo'][:68],145,y+19,11,'#92999e')
+        c+=t(commit['committedDate'][:10],1050,y,12,'#92999e')
+    if not data['recent_commits']: c+=t('No matching authored commits in the sampled default-branch histories.',32,540)
+    c+='<path d="M32 754H1168" stroke="#343b42"/>'
+    c+=t('LANGUAGE BYTES / PUBLIC OWNED NON-FORK REPOSITORIES',32,786,12,'#d4fc67')
+    total=sum(l['bytes'] for l in data['languages']); x=32
+    for lang in data['languages']:
+        width=1136*lang['bytes']/total if total else 0
+        c+=f'<rect x="{x}" y="805" width="{width}" height="8" fill="{lang["color"]}"/>'
+        x+=width
+    for i,lang in enumerate(data['languages'][:5]):
+        c+=t(f'{lang["name"]} {lang["bytes"]/total:.1%}',32+i*226,843,12)
+    c+=t('Contribution totals may include private aggregates; no private repository details are published.',32,885,11,'#92999e')
+    c+=t('Commits: latest 12 per default branch. Languages: code size, not proficiency. Top 20 languages per repository.',32,904,10,'#92999e')
+    return '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="930" viewBox="0 0 1200 930" role="img"><title>Live engineering activity for Harshal Parekh</title><style>text{font-family:Consolas,'Liberation Mono',monospace}</style><rect width="1200" height="930" fill="#101319"/>'''+c+'</svg>'
 
-  <g transform="translate(25, 88)">
-    <path class="icon" d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6a6 6 0 100 12A6 6 0 008 2z"/>
-    <text x="24" y="11" class="stat-label">Total Contributions:</text>
-    <text x="390" y="11" class="stat-highlight" text-anchor="end">{data['contributions']}</text>
-  </g>
+def publish(data):
+    snapshot=ROOT/'data/activity.json'
+    canonical=json.dumps(data,sort_keys=True,ensure_ascii=False,indent=2)+'\n'
+    old=json.loads(snapshot.read_text(encoding='utf-8')) if snapshot.exists() else None
+    svg=render(data); ET.fromstring(svg)
+    readme=ROOT/'README.md'; content=readme.read_text(encoding='utf-8')
+    digest=hashlib.sha256(canonical.encode()).hexdigest()[:12]
+    import re
+    content=re.sub(r'assets/activity-field\.svg\?v=[a-zA-Z0-9]+',f'assets/activity-field.svg?v={digest}',content)
+    start='<!-- ACTIVITY:START -->'; end='<!-- ACTIVITY:END -->'
+    links='\n'.join(f'- [{c["oid"][:7]}]({c["url"]}) · `{c["repo"]}` · {c["committedDate"][:10]}' for c in data['recent_commits'])
+    if start in content and end in content:
+        a,b=content.split(start,1); _,z=b.split(end,1)
+        content=a+start+'\n'+links+'\n'+end+z
+    if old==data and (ROOT/'assets/activity-field.svg').read_text(encoding='utf-8')==svg and readme.read_text(encoding='utf-8')==content:
+        print('No activity change; no commit needed.'); return
+    snapshot.parent.mkdir(exist_ok=True)
+    snapshot.write_text(canonical,encoding='utf-8')
+    (ROOT/'assets/activity-field.svg').write_text(svg,encoding='utf-8')
+    readme.write_text(content,encoding='utf-8')
+    print('Published verified activity, contribution landscape and language bytes.')
 
-  <g transform="translate(25, 114)">
-    <path class="icon" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 12.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V8.5h-1.5v6.872a2.25 2.25 0 01-1.5-2.122z"/>
-    <text x="24" y="11" class="stat-label">Total PRs:</text>
-    <text x="390" y="11" class="stat-value" text-anchor="end">{data['prs']}</text>
-  </g>
-
-  <g transform="translate(25, 140)">
-    <path class="icon" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"/>
-    <text x="24" y="11" class="stat-label">Total Issues:</text>
-    <text x="390" y="11" class="stat-value" text-anchor="end">{data['issues']}</text>
-  </g>
-
-  <g transform="translate(25, 166)">
-    <path class="icon" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
-    <text x="24" y="11" class="stat-label">Contributed to (last year):</text>
-    <text x="390" y="11" class="stat-value" text-anchor="end">{data['contributed_to']}</text>
-  </g>
-</svg>"""
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(svg)
-
-def generate_langs_svg(data, output_path):
-    svg = f"""<svg width="440" height="195" viewBox="0 0 440 195" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .header {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      fill: #818cf8;
-      letter-spacing: 0.2px;
-    }}
-    .lang-name {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 500;
-      font-size: 13px;
-      fill: #a1a1aa;
-    }}
-    .lang-pct {{
-      font-family: "JetBrains Mono", Consolas, monospace;
-      font-weight: 700;
-      font-size: 13px;
-      fill: #f1f5f9;
-    }}
-  </style>
-
-  <rect x="0.5" y="0.5" width="439" height="194" rx="6" fill="#09090b" stroke="#1e293b" stroke-width="1"/>
-
-  <g transform="translate(25, 32)">
-    <text class="header">Most Used Languages</text>
-  </g>
-
-  <g transform="translate(25, 52)">
-    <rect x="0" y="0" width="352" height="9" rx="4.5" fill="#38bdf8"/>
-    <rect x="355" y="0" width="21" height="9" rx="4" fill="#818cf8"/>
-    <rect x="378" y="0" width="12" height="9" rx="4" fill="#34d399"/>
-  </g>
-
-  <g transform="translate(25, 88)">
-    <circle cx="5" cy="5" r="4.5" fill="#38bdf8"/>
-    <text x="18" y="9" class="lang-name">Python</text>
-    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#38bdf8">{data['python_pct']}</text>
-  </g>
-
-  <g transform="translate(25, 114)">
-    <circle cx="5" cy="5" r="4.5" fill="#818cf8"/>
-    <text x="18" y="9" class="lang-name">PostgreSQL / SQL</text>
-    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#818cf8">{data['sql_pct']}</text>
-  </g>
-
-  <g transform="translate(25, 140)">
-    <circle cx="5" cy="5" r="4.5" fill="#34d399"/>
-    <text x="18" y="9" class="lang-name">Docker &amp; Cloud</text>
-    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#34d399">{data['docker_pct']}</text>
-  </g>
-
-  <g transform="translate(25, 172)">
-    <text class="lang-name" font-size="11" fill="#64748b">Primary AI/ML, Vision &amp; Backend Stack</text>
-  </g>
-</svg>"""
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(svg)
-
-if __name__ == "__main__":
-    d = fetch_data()
-    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    generate_stats_svg(d, os.path.join(base, "assets", "github-stats.svg"))
-    generate_langs_svg(d, os.path.join(base, "assets", "top-langs.svg"))
-    print("Updated both cards!")
+if __name__=='__main__': publish(normalize(fetch()))

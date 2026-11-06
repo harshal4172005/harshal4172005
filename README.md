@@ -1,113 +1,71 @@
 <div align="center">
-
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=5" alt="Harshal Parekh — AI Engineer · Diffusion · Vision · Multimodal RAG" width="100%"/>
-
-<br/><br/>
-
-[![Resume](https://img.shields.io/badge/Resume-7C3AED?style=flat-square&logo=adobeacrobatreader&logoColor=white)](https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/harshal-p-parekh)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:harshalparekh17@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-ffffff?style=flat-square&logo=github&logoColor=black)](https://github.com/harshal4172005)
-![Location](https://img.shields.io/badge/Surat%2C%20India-1e1b4b?style=flat-square&logoColor=818cf8)
-
+  <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=fieldbook1" width="100%" alt="Harshal Parekh — AI engineer and systems developer. I turn models into systems people use." />
 </div>
 
----
+<p align="center">
+  <a href="mailto:harshalparekh17@gmail.com">Email</a> &nbsp; / &nbsp;
+  <a href="https://linkedin.com/in/harshal-p-parekh">LinkedIn</a> &nbsp; / &nbsp;
+  <a href="https://github.com/harshal4172005/harshal4172005/blob/main/Harshal_Parekh_Resume.pdf">Resume</a> &nbsp; / &nbsp;
+  <a href="https://github.com/harshal4172005?tab=repositories">Explore the code</a>
+</p>
 
-### About
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/model-card.svg?v=fieldbook1" width="100%" alt="01 The engineer — production AI, vision and backend systems. NexAI Labs diffusion pipelines; BE Computer Engineering, CGPA 8.41; Surat, India. Open to roles worldwide." />
 
-I'm an AI engineer and systems developer based in Surat, India. Over the past 8 months at **NexAI Labs**, my focus has been taking generative models off Jupyter notebooks and into production—building diffusion-based image and video pipelines for commercial garment and jewelry brands, running on AWS EC2 with FastAPI, Docker, and Cloudflare R2.
+<details>
+<summary>Background, in plain text</summary>
 
-When I'm not tuning vision models or orchestrating multi-agent n8n workflows, I build full-stack systems—like an enterprise ERP syncing 100+ gaming PCs in real time via SignalR and Redis, or multimodal RAG engines that caption and index vector diagrams in research papers.
+I'm **Harshal Parekh**, an AI engineer and systems developer based in Surat, India. At **NexAI Labs**, I built diffusion-based image and video pipelines for commercial garment and jewelry brands, connected multi-agent n8n workflows to FastAPI services, and deployed with Docker on AWS EC2, S3 and Cloudflare R2.
 
-* **Education:** B.E. in Computer Engineering &mdash; C.K. Pithawala College (CGPA: **8.41 / 10**, graduating 2026)
-* **Certifications:** Google Cloud Certified with 22 verified Skill Badges (GenAI with Gemini, Cloud Run, Vision API)
-* **Status:** Available immediately &bull; Open to full-time AI/ML, backend, and software engineering roles worldwide
+- **Impact:** pipelines for 5+ commercial brands; 60% faster creative turnaround.
+- **Education:** B.E. Computer Engineering, C.K. Pithawala College; CGPA **8.41 / 10**.
+- **Learning:** 22 Google Cloud skill badges across Gemini, Cloud Run and Vision. Skill badges are distinct from a professional certification.
+- **Looking for:** full-time AI/ML, backend and software engineering opportunities worldwide.
 
----
+Experience and project impact figures are supplied by me. The activity panel below is generated from GitHub data.
 
-### <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/stack-icon.svg?v=2" width="22" height="22" valign="middle"/> &nbsp;Tech Stack
+</details>
 
-<div align="center">
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/production-map.svg?v=fieldbook1" width="100%" alt="02 From prompt to production — n8n and FastAPI route image and video generation pipelines to Amazon S3 and Cloudflare R2, deployed with Docker on AWS EC2." />
 
-**AI / Machine Learning / Vision**
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/stack-map.svg?v=fieldbook1" width="100%" alt="03 Tools connected — Python, C#, JavaScript, SQL; PyTorch, TensorFlow, YOLOv8, OpenCV, diffusion, LangChain, Gemini; FastAPI, Flask, React, SignalR, PostgreSQL, Redis, Qdrant; Docker, Linux, AWS, GCP, R2 and n8n." />
 
-<img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,opencv&theme=dark&perline=4"/>
+### Selected builds / inspect the source
 
-**Backend, Data & Cloud**
+<a href="https://github.com/harshal4172005/APPLE-ESPORTS-GAMMING-SOFTWARE"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/project-erp.svg?v=fieldbook1" width="100%" alt="Open Gaming Cafe ERP — multi-branch management for 100+ PCs, live SignalR synchronization and remote workstation lock/unlock. C#, .NET 8, React, Redis and Docker." /></a>
 
-<img src="https://skillicons.dev/icons?i=fastapi,flask,postgres,docker,aws,gcp&theme=dark&perline=6"/>
+<a href="https://github.com/harshal4172005/multimodal-ai-research-rag"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/project-rag.svg?v=fieldbook1" width="100%" alt="Open Multimodal Research RAG — research paper QA with Gemini Vision figure captions, Qdrant retrieval and Groq/NVIDIA fallback. Python, LangChain and FastAPI." /></a>
 
-**Languages & Tools**
+<a href="https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/project-vision.svg?v=fieldbook1" width="100%" alt="Open AI CCTV Safety Surveillance — live WebRTC PPE detection with alerts and audit logging. YOLOv8, PyTorch, OpenCV and Streamlit." /></a>
 
-<img src="https://skillicons.dev/icons?i=js,html,css,git,github,linux&theme=dark&perline=6"/>
+<details>
+<summary>More experiments</summary>
 
-</div>
+- [Speech to sign language](https://github.com/harshal4172005/audio-speech-to-sign-language) — assistive communication with Python, NLP and speech recognition.
+- [Stock data engine](https://github.com/harshal4172005/EXTRACT-REAL-TIME-DATA-OF-STOCK-S) — market data extraction and analysis.
+- [E-commerce extraction](https://github.com/harshal4172005/scrapping-of-amazon-data-using-selenium) — browser automation with Python and Selenium.
 
----
+</details>
 
-### ⚡ &nbsp;Production Architecture @ NexAI Labs
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=39edfb470ff1" width="100%" alt="04 The living repository — GitHub contribution landscape, recent authored commits, public repository counts, stars and measured language bytes. Automatically checked every 30 minutes." />
 
-```
-Client Prompt / Media
-         │
-         ▼
-[ n8n Multi-Agent Router ] ──▶ [ Diffusion Pipeline ] ──▶ AWS S3
-         │                               │
-         ▼                               ▼
-[ FastAPI Microservice ]   ──▶ [ Video Generation ]    ──▶ Cloudflare R2
-         │
-         └──▶ 5+ Commercial Brands · 60% Faster Turnaround · Docker on EC2
-```
+<details>
+<summary>Open the latest commits / how this updates</summary>
 
----
+<!-- ACTIVITY:START -->
+- [8394560](https://github.com/harshal4172005/harshal4172005/commit/839456075b1443b459606166f31a5b6a83e0e049) · `harshal4172005` · 2026-11-06
+- [e85bdd1](https://github.com/harshal4172005/harshal4172005/commit/e85bdd1b68a8c89a79dffae5b28a140ae16792c1) · `harshal4172005` · 2026-11-06
+- [562a4dc](https://github.com/harshal4172005/harshal4172005/commit/562a4dcd168a7eee0ac7171b17826bc872ced1f5) · `harshal4172005` · 2026-11-06
+- [9792382](https://github.com/harshal4172005/harshal4172005/commit/97923824aa99046cb109e94bcfa7449f9e656278) · `harshal4172005` · 2026-11-06
+<!-- ACTIVITY:END -->
 
-### 📂 &nbsp;Featured Projects (From Resume)
+The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Aggregate counts may include private contributions, but private repository details are never published.
 
-| Project | Stack | Highlight |
-|---------|-------|-----------|
-| **[Multi-Branch Gaming Cafe ERP](https://github.com/harshal4172005/APPLE-ESPORTS-GAMMING-SOFTWARE)** | C# · .NET 8 · React · SignalR · Redis · Docker | Full-stack ERP managing 100+ PCs across branches with live SignalR sync & remote lock/unlock agent |
-| **[Multimodal RAG Assistant](https://github.com/harshal4172005/multimodal-ai-research-rag)** | Python · LangChain · FastAPI · Gemini · Qdrant | Paper QA with Gemini Vision figure captioning & Groq/NVIDIA retry chain |
-| **[AI CCTV Safety Surveillance](https://github.com/harshal4172005/AI-CCTV-SURVEILLANCE-)** | Python · YOLOv8 · PyTorch · OpenCV · Streamlit | Live WebRTC PPE detection (hard hats, vests, masks) with instant alerts |
+The commit feed samples your latest 12 commits per public default branch and shows the four most recent authored commits. Language share measures code bytes across public owned non-fork repositories, using each repo's top 20 languages; it isn't a skill rating. No languages are hidden to inflate a percentage.
 
-<br/>
+**Refresh behavior:** pushes to this profile trigger a rebuild. Activity in other public repositories is checked at minutes 17 and 47 each hour; GitHub may delay scheduled runs and cache refreshed images. Branch commits appear in the feed when they reach a default branch. Manual refresh: [Living engineering profile](https://github.com/harshal4172005/harshal4172005/actions/workflows/update-stats.yml). A `repository_dispatch` event of type `profile-activity` can also trigger a refresh.
 
-### 🔬 &nbsp;Other Work & Experiments
+[Generator](scripts/generate_stats.py) · [Data snapshot](data/activity.json) · [Illustration source](scripts/design.py)
 
-| Project | Stack | Highlight |
-|---------|-------|-----------|
-| **[Speech-to-Sign Language](https://github.com/harshal4172005/audio-speech-to-sign-language)** | Python · NLP · SpeechRecognition | Assistive tech converting verbal voice into real-time sign language |
-| **[Real-Time Stock Engine](https://github.com/harshal4172005/EXTRACT-REAL-TIME-DATA-OF-STOCK-S)** | Python · Google Finance · ETL | Streaming market data extraction and automated financial analysis |
-| **[Amazon Web Scraper](https://github.com/harshal4172005/scrapping-of-amazon-data-using-selenium)** | Python · Selenium · Automation | Resilient e-commerce scraper with dynamic rendering & anti-bot bypass |
+</details>
 
----
-
-### <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/github-mark-white.svg?v=2" width="22" height="22" valign="middle"/> &nbsp;GitHub
-
-<div align="center">
-
-<img height="180" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/github-stats.svg?v=7" alt="GitHub Stats"/>
-&nbsp;
-<img height="180" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/top-langs.svg?v=7" alt="Most Used Languages"/>
-
-</div>
-
----
-
-### 🐍 &nbsp;Contribution Graph
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake.svg">
-  <img alt="GitHub Contribution Snake" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/output/github-snake-dark.svg" width="100%"/>
-</picture>
-
-<br/>
-
-<a href="mailto:harshalparekh17@gmail.com">
-  <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/dispatch-bar.svg?v=5" alt="Engineer().hire() → 200 OK · harshalparekh17@gmail.com" width="100%"/>
-</a>
-
-</div>
+<a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/dispatch-bar.svg?v=fieldbook1" width="100%" alt="Let's build something that ships. AI, ML and backend engineering. Email harshalparekh17@gmail.com." /></a>

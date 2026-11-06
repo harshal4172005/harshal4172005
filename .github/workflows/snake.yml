@@ -1,8 +1,7 @@
 name: Generate Snake Animation
 
 on:
-  schedule:
-    - cron: "0 */4 * * *"   # runs every 4 hours
+  # Legacy asset, retained for manual use. The profile uses activity-field.svg.
   workflow_dispatch:
 
 jobs:
