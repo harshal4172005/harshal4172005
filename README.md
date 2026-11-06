@@ -86,13 +86,9 @@ Client Prompt / Media
 
 <div align="center">
 
-<img height="160" src="https://github-stats-extended.vercel.app/api?username=harshal4172005&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&icon_color=818cf8&text_color=a1a1aa&hide_rank=true&count_private=true&cache_seconds=1800" alt="GitHub Stats"/>
-&nbsp;
-<img height="160" src="https://github-stats-extended.vercel.app/api/top-langs/?username=harshal4172005&layout=compact&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&text_color=a1a1aa&langs_count=8&hide=javascript,c%23,html,css,batchfile,powershell,shell&cache_seconds=1800" alt="Top Languages"/>
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/github-stats.svg?v=1" alt="Harshal Parekh — GitHub Analytics & Contributions" width="100%"/>
 
-<br/>
 
-<img width="68%" src="https://streak-stats.demolab.com?user=harshal4172005&theme=midnight-purple&hide_border=true&background=09090b&ring=818cf8&fire=c084fc&currStreakLabel=818cf8&sideLabels=818cf8&dates=71717a&cache_seconds=1800" alt="GitHub Streak"/>
 
 </div>
 

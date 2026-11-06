@@ -1,0 +1,38 @@
+name: Sync Real-Time GitHub Stats
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"   # runs every 4 hours
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/**'
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate Verified Stats SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/generate_stats.py
+
+      - name: Commit & Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add assets/github-stats.svg
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(stats): auto-sync verified engineering metrics [skip ci]" && git push)
