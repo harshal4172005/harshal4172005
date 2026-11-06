@@ -53,4 +53,37 @@ class ActivityTests(unittest.TestCase):
                 self.assertNotIn('?v=initial',(root/'README.md').read_text())
                 self.assertIn('/commit/',(root/'README.md').read_text())
 
+
+    def test_current_streak_counts_today_and_yesterday(self):
+        weeks=[{'contributionDays':[{'date':'2026-11-04','contributionCount':1},{'date':'2026-11-05','contributionCount':4},{'date':'2026-11-06','contributionCount':2}]}]
+        d=stats.streaks(weeks,stats.dt.date(2026,11,6))
+        self.assertEqual(d['current'],3)
+        self.assertEqual(d['today'],2)
+        self.assertEqual(d['longest'],3)
+        self.assertEqual(d['active_days'],3)
+
+    def test_open_today_keeps_yesterdays_streak(self):
+        weeks=[{'contributionDays':[{'date':'2026-11-04','contributionCount':1},{'date':'2026-11-05','contributionCount':4},{'date':'2026-11-06','contributionCount':0}]}]
+        self.assertEqual(stats.streaks(weeks,stats.dt.date(2026,11,6))['current'],2)
+
+    def test_missed_day_resets_current_but_preserves_longest(self):
+        weeks=[{'contributionDays':[{'date':'2026-11-03','contributionCount':1},{'date':'2026-11-04','contributionCount':4},{'date':'2026-11-05','contributionCount':0},{'date':'2026-11-06','contributionCount':0}]}]
+        d=stats.streaks(weeks,stats.dt.date(2026,11,6))
+        self.assertEqual(d['current'],0)
+        self.assertEqual(d['longest'],2)
+
+    def test_missing_calendar_days_break_streak(self):
+        weeks=[{'contributionDays':[{'date':'2026-11-04','contributionCount':1},{'date':'2026-11-06','contributionCount':2}]}]
+        self.assertEqual(stats.streaks(weeks,stats.dt.date(2026,11,6))['current'],1)
+
+    def test_future_dates_are_excluded(self):
+        weeks=[{'contributionDays':[{'date':'2026-11-07','contributionCount':10}]}]
+        d=stats.streaks(weeks,stats.dt.date(2026,11,6))
+        self.assertEqual(d['current'],0)
+        self.assertEqual(d['active_days'],0)
+
+    def test_empty_calendar_is_zero(self):
+        d=stats.streaks([],stats.dt.date(2026,11,6))
+        self.assertEqual((d['current'],d['longest'],d['today']),(0,0,0))
+
 if __name__=='__main__': unittest.main()

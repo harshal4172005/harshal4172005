@@ -1,5 +1,6 @@
 """Verified activity renderer. Standard library only; failures preserve the last snapshot."""
 import collections
+import datetime as dt
 import hashlib
 import html
 import json
@@ -53,6 +54,28 @@ def fetch():
             if attempt == 2: raise
             time.sleep(2 ** attempt)
 
+def streaks(weeks, today=None):
+    """Compute calendar streaks, allowing the current day to remain open."""
+    today = today or dt.datetime.now(dt.timezone.utc).date()
+    counts = {dt.date.fromisoformat(day['date']): day['contributionCount']
+              for week in weeks for day in week['contributionDays']
+              if dt.date.fromisoformat(day['date']) <= today}
+    end = today if counts.get(today, 0) else today - dt.timedelta(days=1)
+    current = 0
+    while counts.get(end, 0) > 0:
+        current += 1
+        end -= dt.timedelta(days=1)
+    longest = run = 0
+    if counts:
+        cursor = min(counts)
+        while cursor <= today:
+            run = run + 1 if counts.get(cursor, 0) > 0 else 0
+            longest = max(longest, run)
+            cursor += dt.timedelta(days=1)
+    return {'today': counts.get(today, 0), 'current': current,
+            'longest': longest, 'active_days': sum(n > 0 for n in counts.values()),
+            'as_of': today.isoformat(), 'calendar_timezone': 'UTC'}
+
 def normalize(user):
     if user['repositories']['pageInfo']['hasNextPage']:
         raise RuntimeError('More than 100 repositories: add pagination before publishing totals')
@@ -62,7 +85,7 @@ def normalize(user):
     for r in original:
         for e in r['languages']['edges']:
             name=e['node']['name']
-            langs[name]+=e['size']; colors[name]=e['node']['color'] or '#a9baff'
+            langs[name]+=e['size']; colors[name]=e['node']['color'] or '#a78bfa'
     for r in repos:
         branch=r.get('defaultBranchRef')
         if not branch: continue
@@ -75,7 +98,8 @@ def normalize(user):
     unique={}
     for c in commits: unique.setdefault(c['oid'],c)
     coll=user['contributionsCollection']
-    return {'contributions':coll['contributionCalendar']['totalContributions'],
+    return {'streaks':streaks(coll['contributionCalendar']['weeks']),
+            'contributions':coll['contributionCalendar']['totalContributions'],
             'weeks':coll['contributionCalendar']['weeks'],
             'prs':coll['totalPullRequestContributions'],
             'issues':coll['totalIssueContributions'],
@@ -83,51 +107,57 @@ def normalize(user):
             'languages':[{'name':n,'bytes':v,'color':colors[n]} for n,v in langs.most_common()],
             'recent_commits':list(unique.values())[:4]}
 
-def t(s,x,y,size=14,color='#eeeae0'):
+def t(s,x,y,size=14,color='#f4f4f5'):
     return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}">{html.escape(str(s))}</text>'
 
 def render(data):
-    c=t('04 / THE LIVING REPOSITORY',32,39,18,'#d4fc67')
-    c+=t('GITHUB DATA / CHECKED EVERY 30 MIN',777,39,12,'#92999e')
-    c+='<path d="M32 62H1168" stroke="#343b42"/>'
-    for x,num,label in [(32,data['contributions'],'CONTRIBUTIONS / PAST YEAR'),(450,data['public_repos'],'PUBLIC REPOSITORIES'),(870,data['stars'],'STARS / OWNED NON-FORKS')]:
-        c+=t(f'{num:,}',x,127,47)+t(label,x,153,12,'#92999e')
-    c+=t('COMMIT TOPOGRAPHY',32,201,12,'#d4fc67')
-    c+=t('Each ridge is a week. Height follows contribution count.',32,224,12,'#92999e')
+    c=t('GITHUB ACTIVITY / VERIFIED',32,39,18,'#b6ed47')
+    c+=t('CHECKED EVERY 30 MIN / '+data['streaks']['as_of'],790,39,11,'#8b8b95')
+    c+='<path d="M32 62H1168" stroke="#27272a"/>'
+    for x,num,label in [(32,data['contributions'],'API CONTRIBUTIONS / PAST YEAR'),(450,data['public_repos'],'PUBLIC REPOSITORIES'),(870,data['stars'],'STARS / OWNED NON-FORKS')]:
+        c+=t(f'{num:,}',x,127,47)+t(label,x,153,12,'#8b8b95')
+    c+='<path d="M32 178H1168" stroke="#27272a"/>'
+    streak=data['streaks']
+    for x,key,label in [(32,'today','CONTRIBUTIONS TODAY'),(325,'current','CURRENT STREAK / DAYS'),(618,'longest','LONGEST STREAK / PAST YEAR'),(911,'active_days','ACTIVE DAYS / PAST YEAR')]:
+        c+=t(streak[key],x,229,35,'#b6ed47' if key=='current' else '#a78bfa')
+        c+=t(label,x,254,11,'#8b8b95')
+    c+=t('COMMIT TOPOGRAPHY',32,298,12,'#b6ed47')
+    c+=t('Each ridge is a week. Height follows contribution count.',32,321,12,'#8b8b95')
     weeks=data['weeks'][-53:]
     maximum=max([d['contributionCount'] for w in weeks for d in w['contributionDays']]+[1])
     for i,w in enumerate(weeks):
-        base_x=43+i*17.6; base_y=360-i*.91; pts=[]
+        base_x=43+i*17.6; base_y=457-i*.91; pts=[]
         for j in range(7):
             days=w['contributionDays']
             count=days[j]['contributionCount'] if j<len(days) else 0
             height=math.log1p(count)/math.log1p(maximum)*78
             pts.append((base_x+j*20,base_y+j*9-height))
         path='M'+' L'.join(f'{x:.1f} {y:.1f}' for x,y in pts)
-        c+=f'<path d="{path}" fill="none" stroke="{"#d4fc67" if i==len(weeks)-1 else "#a9baff"}" stroke-width="{2 if i==len(weeks)-1 else 1}" opacity="{.3+.7*i/len(weeks):.2f}"/>'
-    if weeks: c+=f'<circle r="3" fill="#d4fc67"><animateMotion dur="7s" repeatCount="indefinite" path="{path}"/></circle>'
-    c+=t('OLDER',33,446,11,'#92999e')+t('LATEST ->',1010,446,11,'#d4fc67')
-    c+='<path d="M32 469H1168" stroke="#343b42"/>'
-    c+=t('LATEST AUTHORED COMMITS / PUBLIC DEFAULT BRANCHES',32,500,12,'#d4fc67')
+        c+=f'<path d="{path}" fill="none" stroke="{"#b6ed47" if i==len(weeks)-1 else "#a78bfa"}" stroke-width="{2 if i==len(weeks)-1 else 1}" opacity="{.3+.7*i/len(weeks):.2f}"/>'
+    if weeks: c+=f'<circle r="3" fill="#b6ed47"><animateMotion dur="7s" repeatCount="indefinite" path="{path}"/></circle>'
+    c+=t('OLDER',33,543,11,'#8b8b95')+t('LATEST ->',1010,543,11,'#b6ed47')
+    c+='<path d="M32 566H1168" stroke="#27272a"/>'
+    c+=t('LATEST AUTHORED COMMITS / PUBLIC DEFAULT BRANCHES',32,597,12,'#b6ed47')
     for i,commit in enumerate(data['recent_commits']):
-        y=536+i*53; title=commit['messageHeadline']
+        y=633+i*53; title=commit['messageHeadline']
         if len(title)>78: title=title[:75]+'...'
-        c+=t(commit['oid'][:7],32,y,13,'#a9baff')+t(title,145,y,14)
-        c+=t(commit['repo'][:68],145,y+19,11,'#92999e')
-        c+=t(commit['committedDate'][:10],1050,y,12,'#92999e')
-    if not data['recent_commits']: c+=t('No matching authored commits in the sampled default-branch histories.',32,540)
-    c+='<path d="M32 754H1168" stroke="#343b42"/>'
-    c+=t('LANGUAGE BYTES / PUBLIC OWNED NON-FORK REPOSITORIES',32,786,12,'#d4fc67')
+        c+=t(commit['oid'][:7],32,y,13,'#a78bfa')+t(title,145,y,14)
+        c+=t(commit['repo'][:68],145,y+19,11,'#8b8b95')
+        c+=t(commit['committedDate'][:10],1050,y,12,'#8b8b95')
+    if not data['recent_commits']: c+=t('No matching authored commits in the sampled default-branch histories.',32,637)
+    c+='<path d="M32 851H1168" stroke="#27272a"/>'
+    c+=t('LANGUAGE BYTES / PUBLIC OWNED NON-FORK REPOSITORIES',32,883,12,'#b6ed47')
     total=sum(l['bytes'] for l in data['languages']); x=32
     for lang in data['languages']:
         width=1136*lang['bytes']/total if total else 0
-        c+=f'<rect x="{x}" y="805" width="{width}" height="8" fill="{lang["color"]}"/>'
+        c+=f'<rect x="{x}" y="902" width="{width}" height="8" fill="{lang["color"]}"/>'
         x+=width
     for i,lang in enumerate(data['languages'][:5]):
-        c+=t(f'{lang["name"]} {lang["bytes"]/total:.1%}',32+i*226,843,12)
-    c+=t('Contribution totals may include private aggregates; no private repository details are published.',32,885,11,'#92999e')
-    c+=t('Commits: latest 12 per default branch. Languages: code size, not proficiency. Top 20 languages per repository.',32,904,10,'#92999e')
-    return '''<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="930" viewBox="0 0 1200 930" role="img"><title>Live engineering activity for Harshal Parekh</title><style>text{font-family:Consolas,'Liberation Mono',monospace}</style><rect width="1200" height="930" fill="#101319"/>'''+c+'</svg>'
+        c+=t(f'{lang["name"]} {lang["bytes"]/total:.1%}',32+i*226,940,12)
+    c+=t('Streaks use GitHub calendar dates (UTC). Yesterday keeps a streak active while today is still open.',32,979,11,'#8b8b95')
+    c+=t('Counts reflect API access and can differ from signed-in totals. No private repository details are published.',32,998,11,'#8b8b95')
+    c+=t('Commits: latest 12 per default branch. Languages: code size; top 20 per public owned non-fork repository.',32,1017,10,'#8b8b95')
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img"><title>Live GitHub activity and daily contribution streaks for Harshal Parekh</title><style>text{font-family:Consolas,monospace}</style><rect width="1200" height="1040" rx="14" fill="#09090b"/><rect x=".5" y=".5" width="1199" height="1039" rx="14" fill="none" stroke="#27272a"/>'+c+'</svg>'
 
 def publish(data):
     snapshot=ROOT/'data/activity.json'

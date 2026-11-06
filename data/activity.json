@@ -44,7 +44,7 @@
     },
     {
       "bytes": 3960,
-      "color": "#a9baff",
+      "color": "#a78bfa",
       "name": "NSIS"
     },
     {
@@ -91,6 +91,14 @@
     }
   ],
   "stars": 1,
+  "streaks": {
+    "active_days": 74,
+    "as_of": "2026-11-06",
+    "calendar_timezone": "UTC",
+    "current": 2,
+    "longest": 13,
+    "today": 24
+  },
   "weeks": [
     {
       "contributionDays": [
