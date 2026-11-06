@@ -1,5 +1,5 @@
 {
-  "contributions": 527,
+  "contributions": 528,
   "issues": 1,
   "languages": [
     {
@@ -13,7 +13,7 @@
       "name": "JavaScript"
     },
     {
-      "bytes": 167357,
+      "bytes": 169317,
       "color": "#3572A5",
       "name": "Python"
     },
@@ -62,6 +62,13 @@
   "public_repos": 13,
   "recent_commits": [
     {
+      "committedDate": "2026-11-06T17:55:05Z",
+      "messageHeadline": "Replace plain contact links with matching animated contact cards",
+      "oid": "28979d8aaba95633e08feadc8a85613612854265",
+      "repo": "harshal4172005",
+      "url": "https://github.com/harshal4172005/harshal4172005/commit/28979d8aaba95633e08feadc8a85613612854265"
+    },
+    {
       "committedDate": "2026-11-06T17:42:59Z",
       "messageHeadline": "Complete animated inference profile and add daily contribution streaks",
       "oid": "45246dd13532d5bd4e844af3697fae37b4aead41",
@@ -81,13 +88,6 @@
       "oid": "839456075b1443b459606166f31a5b6a83e0e049",
       "repo": "harshal4172005",
       "url": "https://github.com/harshal4172005/harshal4172005/commit/839456075b1443b459606166f31a5b6a83e0e049"
-    },
-    {
-      "committedDate": "2026-11-06T08:02:15Z",
-      "messageHeadline": "feat(dashboard): replace broken vercel cards with self-hosted 1,050+ …",
-      "oid": "e85bdd1b68a8c89a79dffae5b28a140ae16792c1",
-      "repo": "harshal4172005",
-      "url": "https://github.com/harshal4172005/harshal4172005/commit/e85bdd1b68a8c89a79dffae5b28a140ae16792c1"
     }
   ],
   "stars": 1,
@@ -97,7 +97,7 @@
     "calendar_timezone": "UTC",
     "current": 2,
     "longest": 13,
-    "today": 25
+    "today": 26
   },
   "weeks": [
     {
@@ -1787,7 +1787,7 @@
           "date": "2026-11-05"
         },
         {
-          "contributionCount": 25,
+          "contributionCount": 26,
           "date": "2026-11-06"
         }
       ]
