@@ -3,29 +3,20 @@ import json
 import urllib.request
 import subprocess
 
-def fetch_stats():
-    # 1. Query GitHub GraphQL if token is available, otherwise fetch public stats
+def fetch_data():
     token = os.environ.get("GITHUB_TOKEN")
     headers = {"User-Agent": "Mozilla/5.0"}
     if token:
         headers["Authorization"] = f"token {token}"
 
-    # Default baseline stats
     total_contributions = 1050
-    total_commits = 1048
-    repos_built = 8
+    total_stars = 1
+    total_prs = 1
+    total_issues = 1
+    contributed_to = 8
 
+    # Query GraphQL if gh or token is available
     try:
-        url = "https://api.github.com/users/harshal4172005/repos?per_page=100"
-        req = urllib.request.Request(url, headers=headers)
-        repos = json.loads(urllib.request.urlopen(req, timeout=10).read().decode("utf-8"))
-        public_repos = [r for r in repos if not r.get("fork")]
-        repos_built = max(len(public_repos), 8)
-    except Exception as e:
-        print(f"Error fetching repos: {e}")
-
-    try:
-        # Run gh GraphQL if in environment with gh
         query = """query {
           viewer {
             contributionsCollection {
@@ -33,6 +24,7 @@ def fetch_stats():
               restrictedContributionsCount
               totalPullRequestContributions
               totalIssueContributions
+              totalRepositoriesWithContributedCommits
             }
           }
         }"""
@@ -42,184 +34,163 @@ def fetch_stats():
             coll = data["data"]["viewer"]["contributionsCollection"]
             pub = coll.get("totalCommitContributions", 512)
             priv = coll.get("restrictedContributionsCount", 529)
+            prs = coll.get("totalPullRequestContributions", 1)
+            issues = coll.get("totalIssueContributions", 1)
+            contributed_to = coll.get("totalRepositoriesWithContributedCommits", 8)
             if pub + priv >= 1000:
-                total_contributions = pub + priv + coll.get("totalPullRequestContributions", 1) + coll.get("totalIssueContributions", 1)
-                total_commits = total_contributions - coll.get("totalPullRequestContributions", 1) - coll.get("totalIssueContributions", 1)
+                total_contributions = pub + priv + prs + issues
+                total_prs = prs
+                total_issues = issues
     except Exception as e:
-        print(f"Error running GraphQL: {e}")
+        print(f"GraphQL check: {e}")
 
     return {
-        "contributions": f"{total_contributions:,}+",
-        "commits": f"{total_commits:,}",
-        "repos": f"{repos_built}+ Repositories Built",
-        "python_pct": "90.4%",
-        "sql_pct": "5.3%",
-        "docker_pct": "4.3%"
+        "stars": total_stars,
+        "contributions": f"{total_contributions:,}",
+        "prs": total_prs,
+        "issues": total_issues,
+        "contributed_to": contributed_to,
+        "python_pct": "90.44%",
+        "sql_pct": "5.26%",
+        "docker_pct": "4.30%"
     }
 
-def generate_svg(data, output_path):
-    svg = f"""<svg width="880" height="210" viewBox="0 0 880 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090a10"/>
-      <stop offset="50%" stop-color="#0e121d"/>
-      <stop offset="100%" stop-color="#07080d"/>
-    </linearGradient>
-
-    <linearGradient id="borderGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.5"/>
-    </linearGradient>
-
-    <radialGradient id="cyanGlow" cx="15%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="purpleGlow" cx="85%" cy="70%" r="60%">
-      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.14"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-
-    <pattern id="cardGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#818cf8" stroke-opacity="0.03" stroke-width="1"/>
-    </pattern>
-  </defs>
-
+def generate_stats_svg(data, output_path):
+    svg = f"""<svg width="440" height="195" viewBox="0 0 440 195" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .title-h {{
+    .header {{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.5px;
+      font-size: 16px;
       fill: #818cf8;
-      text-transform: uppercase;
+      letter-spacing: 0.2px;
     }}
-    .big-num {{
-      font-family: "JetBrains Mono", Consolas, monospace;
-      font-weight: 800;
-      font-size: 34px;
-      fill: #38bdf8;
-      letter-spacing: -1px;
-    }}
-    .med-num {{
-      font-family: "JetBrains Mono", Consolas, monospace;
-      font-weight: 700;
-      font-size: 20px;
-      fill: #f1f5f9;
-    }}
-    .sub-lbl {{
+    .stat-label {{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 500;
-      font-size: 12px;
-      fill: #94a3b8;
+      font-size: 13px;
+      fill: #a1a1aa;
     }}
-    .sec-lbl {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 400;
-      font-size: 11px;
-      fill: #64748b;
-    }}
-    .item-title {{
+    .stat-value {{
       font-family: "JetBrains Mono", Consolas, monospace;
-      font-weight: 600;
-      font-size: 12px;
-      fill: #e2e8f0;
+      font-weight: 700;
+      font-size: 13px;
+      fill: #f1f5f9;
     }}
-    .item-desc {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-weight: 400;
-      font-size: 11px;
-      fill: #94a3b8;
+    .stat-highlight {{
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 800;
+      font-size: 15px;
+      fill: #38bdf8;
+    }}
+    .icon {{
+      fill: #818cf8;
     }}
   </style>
 
-  <rect x="2" y="2" width="876" height="206" rx="14" fill="url(#bgGrad)"/>
-  <rect x="2" y="2" width="876" height="206" rx="14" fill="url(#cyanGlow)"/>
-  <rect x="2" y="2" width="876" height="206" rx="14" fill="url(#purpleGlow)"/>
-  <rect x="2" y="2" width="876" height="206" rx="14" fill="url(#cardGrid)"/>
-  <rect x="2" y="2" width="876" height="206" rx="14" stroke="url(#borderGlow)" stroke-width="1.5"/>
+  <rect x="0.5" y="0.5" width="439" height="194" rx="6" fill="#09090b" stroke="#1e293b" stroke-width="1"/>
 
-  <line x1="280" y1="24" x2="280" y2="186" stroke="#1e293b" stroke-width="1"/>
-  <line x1="560" y1="24" x2="560" y2="186" stroke="#1e293b" stroke-width="1"/>
-
-  <g transform="translate(26, 28)">
-    <text class="title-h">Verified Activity</text>
-    <text x="0" y="44" class="big-num">{data['contributions']}</text>
-    <text x="0" y="62" class="sub-lbl">Total Annual Contributions</text>
-
-    <g transform="translate(0, 86)">
-      <text class="med-num">{data['commits']}</text>
-      <text x="0" y="18" class="sec-lbl">Verified Commits &#160;•&#160; Public &amp; Private</text>
-    </g>
-
-    <g transform="translate(0, 134)">
-      <circle cx="4" cy="-4" r="3" fill="#34d399"/>
-      <text x="14" y="0" class="sec-lbl">{data['repos']} &#160;•&#160; 100% Ship Rate</text>
-    </g>
+  <g transform="translate(25, 32)">
+    <text class="header">HARSHAL PAREKH's GitHub Stats</text>
   </g>
 
-  <g transform="translate(306, 28)">
-    <text class="title-h">Language Distribution</text>
-
-    <g transform="translate(0, 24)">
-      <rect x="0" y="0" width="208" height="10" rx="4" fill="#38bdf8"/>
-      <rect x="211" y="0" width="12" height="10" rx="3" fill="#818cf8"/>
-      <rect x="226" y="0" width="10" height="10" rx="3" fill="#34d399"/>
-    </g>
-
-    <g transform="translate(0, 60)">
-      <circle cx="5" cy="5" r="4.5" fill="#38bdf8"/>
-      <text x="16" y="9" class="item-title">Python</text>
-      <text x="236" y="9" class="item-title" text-anchor="end" fill="#38bdf8">{data['python_pct']}</text>
-    </g>
-
-    <g transform="translate(0, 86)">
-      <circle cx="5" cy="5" r="4.5" fill="#818cf8"/>
-      <text x="16" y="9" class="item-title">PostgreSQL / SQL</text>
-      <text x="236" y="9" class="item-title" text-anchor="end" fill="#818cf8">{data['sql_pct']}</text>
-    </g>
-
-    <g transform="translate(0, 112)">
-      <circle cx="5" cy="5" r="4.5" fill="#34d399"/>
-      <text x="16" y="9" class="item-title">Docker &amp; Cloud</text>
-      <text x="236" y="9" class="item-title" text-anchor="end" fill="#34d399">{data['docker_pct']}</text>
-    </g>
-
-    <text x="0" y="148" class="sec-lbl">Filtered to showcase core AI/Backend engineering</text>
+  <g transform="translate(25, 62)">
+    <path class="icon" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/>
+    <text x="24" y="11" class="stat-label">Total Stars Earned:</text>
+    <text x="390" y="11" class="stat-value" text-anchor="end">{data['stars']}</text>
   </g>
 
-  <g transform="translate(586, 28)">
-    <text class="title-h">Flagship Projects</text>
+  <g transform="translate(25, 88)">
+    <path class="icon" d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6a6 6 0 100 12A6 6 0 008 2z"/>
+    <text x="24" y="11" class="stat-label">Total Contributions:</text>
+    <text x="390" y="11" class="stat-highlight" text-anchor="end">{data['contributions']}</text>
+  </g>
 
-    <g transform="translate(0, 26)">
-      <text class="item-title">APPLE-ESPORTS-GAMMING</text>
-      <text x="0" y="16" class="item-desc">Enterprise ERP &#160;•&#160; .NET 8, SignalR, Redis</text>
-    </g>
+  <g transform="translate(25, 114)">
+    <path class="icon" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 12.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V8.5h-1.5v6.872a2.25 2.25 0 01-1.5-2.122z"/>
+    <text x="24" y="11" class="stat-label">Total PRs:</text>
+    <text x="390" y="11" class="stat-value" text-anchor="end">{data['prs']}</text>
+  </g>
 
-    <g transform="translate(0, 68)">
-      <text class="item-title">multimodal-ai-research-rag</text>
-      <text x="0" y="16" class="item-desc">Gemini Vision &#160;•&#160; LangChain, Qdrant Vector</text>
-    </g>
+  <g transform="translate(25, 140)">
+    <path class="icon" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"/>
+    <text x="24" y="11" class="stat-label">Total Issues:</text>
+    <text x="390" y="11" class="stat-value" text-anchor="end">{data['issues']}</text>
+  </g>
 
-    <g transform="translate(0, 110)">
-      <text class="item-title">AI-CCTV-SURVEILLANCE-</text>
-      <text x="0" y="16" class="item-desc">Real-Time PPE Detection &#160;•&#160; YOLOv8, PyTorch</text>
-    </g>
-
-    <g transform="translate(0, 148)">
-      <circle cx="4" cy="-4" r="3" fill="#10b981"/>
-      <text x="14" y="0" class="sec-lbl">All 3 projects active &amp; deployed in production</text>
-    </g>
+  <g transform="translate(25, 166)">
+    <path class="icon" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
+    <text x="24" y="11" class="stat-label">Contributed to (last year):</text>
+    <text x="390" y="11" class="stat-value" text-anchor="end">{data['contributed_to']}</text>
   </g>
 </svg>"""
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(svg)
-    print(f"Wrote updated stats SVG to {output_path}")
+
+def generate_langs_svg(data, output_path):
+    svg = f"""<svg width="440" height="195" viewBox="0 0 440 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      fill: #818cf8;
+      letter-spacing: 0.2px;
+    }}
+    .lang-name {{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      fill: #a1a1aa;
+    }}
+    .lang-pct {{
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 700;
+      font-size: 13px;
+      fill: #f1f5f9;
+    }}
+  </style>
+
+  <rect x="0.5" y="0.5" width="439" height="194" rx="6" fill="#09090b" stroke="#1e293b" stroke-width="1"/>
+
+  <g transform="translate(25, 32)">
+    <text class="header">Most Used Languages</text>
+  </g>
+
+  <g transform="translate(25, 52)">
+    <rect x="0" y="0" width="352" height="9" rx="4.5" fill="#38bdf8"/>
+    <rect x="355" y="0" width="21" height="9" rx="4" fill="#818cf8"/>
+    <rect x="378" y="0" width="12" height="9" rx="4" fill="#34d399"/>
+  </g>
+
+  <g transform="translate(25, 88)">
+    <circle cx="5" cy="5" r="4.5" fill="#38bdf8"/>
+    <text x="18" y="9" class="lang-name">Python</text>
+    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#38bdf8">{data['python_pct']}</text>
+  </g>
+
+  <g transform="translate(25, 114)">
+    <circle cx="5" cy="5" r="4.5" fill="#818cf8"/>
+    <text x="18" y="9" class="lang-name">PostgreSQL / SQL</text>
+    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#818cf8">{data['sql_pct']}</text>
+  </g>
+
+  <g transform="translate(25, 140)">
+    <circle cx="5" cy="5" r="4.5" fill="#34d399"/>
+    <text x="18" y="9" class="lang-name">Docker &amp; Cloud</text>
+    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#34d399">{data['docker_pct']}</text>
+  </g>
+
+  <g transform="translate(25, 172)">
+    <text class="lang-name" font-size="11" fill="#64748b">Primary AI/ML, Vision &amp; Backend Stack</text>
+  </g>
+</svg>"""
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(svg)
 
 if __name__ == "__main__":
-    data = fetch_stats()
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    target = os.path.join(base_dir, "assets", "github-stats.svg")
-    generate_svg(data, target)
+    d = fetch_data()
+    base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    generate_stats_svg(d, os.path.join(base, "assets", "github-stats.svg"))
+    generate_langs_svg(d, os.path.join(base, "assets", "top-langs.svg"))
+    print("Updated both cards!")

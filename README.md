@@ -86,9 +86,9 @@ Client Prompt / Media
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/github-stats.svg?v=1" alt="Harshal Parekh — GitHub Analytics & Contributions" width="100%"/>
-
-
+<img height="180" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/github-stats.svg?v=7" alt="GitHub Stats"/>
+&nbsp;
+<img height="180" src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/top-langs.svg?v=7" alt="Most Used Languages"/>
 
 </div>
 

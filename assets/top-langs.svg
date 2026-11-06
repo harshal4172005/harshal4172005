@@ -1,0 +1,57 @@
+<svg width="440" height="195" viewBox="0 0 440 195" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .header {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      fill: #818cf8;
+      letter-spacing: 0.2px;
+    }
+    .lang-name {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      fill: #a1a1aa;
+    }
+    .lang-pct {
+      font-family: "JetBrains Mono", Consolas, monospace;
+      font-weight: 700;
+      font-size: 13px;
+      fill: #f1f5f9;
+    }
+  </style>
+
+  <rect x="0.5" y="0.5" width="439" height="194" rx="6" fill="#09090b" stroke="#1e293b" stroke-width="1"/>
+
+  <g transform="translate(25, 32)">
+    <text class="header">Most Used Languages</text>
+  </g>
+
+  <g transform="translate(25, 52)">
+    <rect x="0" y="0" width="352" height="9" rx="4.5" fill="#38bdf8"/>
+    <rect x="355" y="0" width="21" height="9" rx="4" fill="#818cf8"/>
+    <rect x="378" y="0" width="12" height="9" rx="4" fill="#34d399"/>
+  </g>
+
+  <g transform="translate(25, 88)">
+    <circle cx="5" cy="5" r="4.5" fill="#38bdf8"/>
+    <text x="18" y="9" class="lang-name">Python</text>
+    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#38bdf8">90.44%</text>
+  </g>
+
+  <g transform="translate(25, 114)">
+    <circle cx="5" cy="5" r="4.5" fill="#818cf8"/>
+    <text x="18" y="9" class="lang-name">PostgreSQL / SQL</text>
+    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#818cf8">5.26%</text>
+  </g>
+
+  <g transform="translate(25, 140)">
+    <circle cx="5" cy="5" r="4.5" fill="#34d399"/>
+    <text x="18" y="9" class="lang-name">Docker &amp; Cloud</text>
+    <text x="390" y="9" class="lang-pct" text-anchor="end" fill="#34d399">4.30%</text>
+  </g>
+
+  <g transform="translate(25, 172)">
+    <text class="lang-name" font-size="11" fill="#64748b">Primary AI/ML, Vision &amp; Backend Stack</text>
+  </g>
+</svg>
