@@ -13,7 +13,7 @@
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-01.svg?v=claude2" width="100%" alt="01 Model card — about the engineer" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/model-card.svg?v=claude2" width="100%" alt="AI engineer and systems developer. NexAI Labs production diffusion; BE Computer Engineering, CGPA 8.41; 22 Google Cloud skill badges. Open to roles worldwide. The loss curves illustrate the notebook-to-production journey." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/model-card.svg?v=growth1" width="100%" alt="AI engineer and systems developer. NexAI Labs production diffusion; BE Computer Engineering, CGPA 8.41; 22 Google Cloud skill badges. Open to roles worldwide. The rising learning curve illustrates growth from Python foundations through APIs, vision and generative AI to production systems." />
 
 <details>
 <summary>Background, in plain text</summary>
