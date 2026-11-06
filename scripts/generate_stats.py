@@ -115,47 +115,54 @@ def t(s,x,y,size=14,color='#f4f4f5'):
     return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}">{html.escape(str(s))}</text>'
 
 def render(data):
-    c=t('GITHUB ACTIVITY',28,45,24,'#b6ed47')+t('SYNC / EVERY 10 MIN',615,44,15,'#a0a2b0')
-    c+='<path d="M28 66H812" stroke="#27272a"/>'
-    c+=t(f'{data["contributions"]:,}',28,140,64)+t('TOTAL CONTRIBUTIONS / PAST YEAR',28,173,17,'#c3c5ce')
-    c+=t(f'{data["public_contributions"]:,} public + {data["private_contributions"]:,} private',28,204,18,'#a78bfa')
-    for x,key,label in [(510,'public_repos','Public repos'),(690,'stars','Stars')]:
-        c+=t(data[key],x,140,46)+t(label,x,173,17,'#c3c5ce')
-    c+='<path d="M28 228H812" stroke="#27272a"/>'
-    for x,key,label,sub in [(28,'today','TODAY','contributions'),(235,'current','CURRENT STREAK','days'),(442,'longest','LONGEST STREAK','past year'),(649,'active_days','ACTIVE DAYS','past year')]:
-        c+=t(data['streaks'][key],x,289,44,'#b6ed47' if key=='current' else '#a78bfa')
-        c+=t(label,x,320,15,'#c3c5ce')+t(sub,x,344,15,'#a0a2b0')
-    c+=t('CONTRIBUTION LANDSCAPE',28,393,20,'#b6ed47')
-    c+=t('One ridge per week. Height follows daily contributions.',28,423,16,'#c3c5ce')
+    c=t('GITHUB ACTIVITY / VERIFIED',32,39,18,'#b6ed47')
+    c+=t('CHECKED EVERY 10 MIN / '+data['streaks']['as_of'],790,39,11,'#8b8b95')
+    c+='<path d="M32 62H1168" stroke="#27272a"/>'
+    for x,num,label in [(32,data['contributions'],'TOTAL CONTRIBUTIONS / PAST YEAR'),(450,data['public_repos'],'PUBLIC REPOSITORIES'),(870,data['stars'],'STARS / OWNED NON-FORKS')]:
+        c+=t(f'{num:,}',x,127,47)+t(label,x,153,12,'#8b8b95')
+    c+=t(f'PUBLIC {data["public_contributions"]:,} + PRIVATE {data["private_contributions"]:,}',32,171,10,'#a78bfa')
+    c+='<path d="M32 178H1168" stroke="#27272a"/>'
+    streak=data['streaks']
+    for x,key,label in [(32,'today','CONTRIBUTIONS TODAY'),(325,'current','CURRENT STREAK / DAYS'),(618,'longest','LONGEST STREAK / PAST YEAR'),(911,'active_days','ACTIVE DAYS / PAST YEAR')]:
+        c+=t(streak[key],x,229,35,'#b6ed47' if key=='current' else '#a78bfa')
+        c+=t(label,x,254,11,'#8b8b95')
+    c+=t('COMMIT TOPOGRAPHY',32,298,12,'#b6ed47')
+    c+=t('Each ridge is a week. Height follows contribution count.',32,321,12,'#8b8b95')
     weeks=data['weeks'][-53:]
     maximum=max([d['contributionCount'] for w in weeks for d in w['contributionDays']]+[1])
     for i,w in enumerate(weeks):
-        pts=[]
+        base_x=43+i*17.6; base_y=457-i*.91; pts=[]
         for j in range(7):
-            days=w['contributionDays'];count=days[j]['contributionCount'] if j<len(days) else 0
-            height=math.log1p(count)/math.log1p(maximum)*72
-            pts.append((32+i*12.7+j*14,535-i*.55+j*7-height))
+            days=w['contributionDays']
+            count=days[j]['contributionCount'] if j<len(days) else 0
+            height=math.log1p(count)/math.log1p(maximum)*78
+            pts.append((base_x+j*20,base_y+j*9-height))
         path='M'+' L'.join(f'{x:.1f} {y:.1f}' for x,y in pts)
         c+=f'<path d="{path}" fill="none" stroke="{"#b6ed47" if i==len(weeks)-1 else "#a78bfa"}" stroke-width="{2 if i==len(weeks)-1 else 1}" opacity="{.3+.7*i/len(weeks):.2f}"/>'
-    if weeks:c+=f'<circle r="3" fill="#b6ed47"><animateMotion dur="7s" repeatCount="indefinite" path="{path}"/></circle>'
-    c+=t('OLDER',28,614,14,'#a0a2b0')+t('LATEST',745,614,14,'#b6ed47')
-    c+='<path d="M28 637H812" stroke="#27272a"/>'
-    c+=t('LATEST AUTHORED COMMITS',28,678,20,'#b6ed47')
+    if weeks: c+=f'<circle r="3" fill="#b6ed47"><animateMotion dur="7s" repeatCount="indefinite" path="{path}"/></circle>'
+    c+=t('OLDER',33,543,11,'#8b8b95')+t('LATEST ->',1010,543,11,'#b6ed47')
+    c+='<path d="M32 566H1168" stroke="#27272a"/>'
+    c+=t('LATEST AUTHORED COMMITS / PUBLIC DEFAULT BRANCHES',32,597,12,'#b6ed47')
     for i,commit in enumerate(data['recent_commits']):
-        y=718+i*64;title=commit['messageHeadline']
-        if len(title)>65:title=title[:62]+'...'
-        c+=t(commit['oid'][:7],28,y,15,'#a78bfa')+t(title,123,y,16.5)
-        c+=t(commit['repo'][:48],123,y+26,15,'#c3c5ce')+t(commit['committedDate'][:10],680,y+26,14,'#a0a2b0')
-    if not data['recent_commits']:c+=t('No matching public authored commits yet.',28,718,17)
-    c+='<path d="M28 970H812" stroke="#27272a"/>'
-    c+=t('LANGUAGES / PUBLIC CODE BYTES',28,1010,20,'#b6ed47')
-    total=sum(l['bytes'] for l in data['languages']);x=28
+        y=633+i*53; title=commit['messageHeadline']
+        if len(title)>78: title=title[:75]+'...'
+        c+=t(commit['oid'][:7],32,y,13,'#a78bfa')+t(title,145,y,14)
+        c+=t(commit['repo'][:68],145,y+19,11,'#8b8b95')
+        c+=t(commit['committedDate'][:10],1050,y,12,'#8b8b95')
+    if not data['recent_commits']: c+=t('No matching authored commits in the sampled default-branch histories.',32,637)
+    c+='<path d="M32 851H1168" stroke="#27272a"/>'
+    c+=t('LANGUAGE BYTES / PUBLIC OWNED NON-FORK REPOSITORIES',32,883,12,'#b6ed47')
+    total=sum(l['bytes'] for l in data['languages']); x=32
     for lang in data['languages']:
-        w=784*lang['bytes']/total if total else 0
-        c+=f'<rect x="{x}" y="1032" width="{w}" height="11" fill="{lang["color"]}"/>';x+=w
-    for i,lang in enumerate(data['languages'][:6]):
-        c+=t(f'{lang["name"]} {lang["bytes"]/total:.1%}',28+(i%3)*267,1075+(i//3)*28,16,'#c3c5ce')
-    return '<svg xmlns="http://www.w3.org/2000/svg" width="840" height="1130" viewBox="0 0 840 1130" role="img"><title>Live public and private contribution totals, daily streaks, commits and language bytes</title><style>text{font-family:Consolas,monospace}</style><rect width="840" height="1130" rx="14" fill="#09090b"/><rect x=".5" y=".5" width="839" height="1129" rx="14" fill="none" stroke="#27272a"/>'+c+'</svg>'
+        width=1136*lang['bytes']/total if total else 0
+        c+=f'<rect x="{x}" y="902" width="{width}" height="8" fill="{lang["color"]}"/>'
+        x+=width
+    for i,lang in enumerate(data['languages'][:5]):
+        c+=t(f'{lang["name"]} {lang["bytes"]/total:.1%}',32+i*226,940,12)
+    c+=t('Streaks use GitHub calendar dates (UTC). Yesterday keeps a streak active while today is still open.',32,979,11,'#8b8b95')
+    c+=t('Totals include public + shared private contributions. Private repository names and details stay hidden.',32,998,11,'#8b8b95')
+    c+=t('Commits: latest 12 per default branch. Languages: code size; top 20 per public owned non-fork repository.',32,1017,10,'#8b8b95')
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img"><title>Live GitHub activity and daily contribution streaks for Harshal Parekh</title><style>text{font-family:Consolas,monospace}</style><rect width="1200" height="1040" rx="14" fill="#09090b"/><rect x=".5" y=".5" width="1199" height="1039" rx="14" fill="none" stroke="#27272a"/>'+c+'</svg>'
 
 def render_header(header, contributions):
     updated, matches = re.subn(r'(<text id="live-contribution-count"[^>]*>)[^<]*(</text>)',
@@ -170,35 +177,26 @@ def publish(data):
     canonical=json.dumps(data,sort_keys=True,ensure_ascii=False,indent=2)+'\n'
     old=json.loads(snapshot.read_text(encoding='utf-8')) if snapshot.exists() else None
     svg=render(data); ET.fromstring(svg)
-    header_path=ROOT/'assets/hero-total-readable.svg'
+    header_path=ROOT/'assets/hero-total-contributions.svg'
     old_header=header_path.read_text(encoding='utf-8')
     header=render_header(old_header,data['contributions'])
     readme=ROOT/'README.md'; content=readme.read_text(encoding='utf-8')
     digest=hashlib.sha256(canonical.encode()).hexdigest()[:12]
     import re
-    content=re.sub(r'assets/activity-readable\.svg\?v=[a-zA-Z0-9]+',f'assets/activity-readable.svg?v={digest}',content)
+    content=re.sub(r'assets/activity-totals\.svg\?v=[a-zA-Z0-9]+',f'assets/activity-totals.svg?v={digest}',content)
     header_digest=hashlib.sha256(header.encode()).hexdigest()[:12]
-    content=re.sub(r'assets/hero-total-readable\.svg\?v=[a-zA-Z0-9]+',f'assets/hero-total-readable.svg?v={header_digest}',content)
+    content=re.sub(r'assets/hero-total-contributions\.svg\?v=[a-zA-Z0-9]+',f'assets/hero-total-contributions.svg?v={header_digest}',content)
     start='<!-- ACTIVITY:START -->'; end='<!-- ACTIVITY:END -->'
     links='\n'.join(f'- [{c["oid"][:7]}]({c["url"]}) · `{c["repo"]}` · {c["committedDate"][:10]}' for c in data['recent_commits'])
     if start in content and end in content:
         a,b=content.split(start,1); _,z=b.split(end,1)
         content=a+start+'\n'+links+'\n'+end+z
-    metrics_start='<!-- METRICS:START -->';metrics_end='<!-- METRICS:END -->'
-    if metrics_start in content and metrics_end in content:
-        a,b=content.split(metrics_start,1);_,z=b.split(metrics_end,1)
-        summary=(f'**Total contributions: {data["contributions"]:,}** — '
-                 f'{data["public_contributions"]:,} public + {data["private_contributions"]:,} private.\n\n'
-                 f'**Today:** {data["streaks"]["today"]:,} contributions · '
-                 f'**Current streak:** {data["streaks"]["current"]} days · '
-                 f'**Longest streak:** {data["streaks"]["longest"]} days in the past year.')
-        content=a+metrics_start+'\n'+summary+'\n'+metrics_end+z
-    if old_header==header and old==data and (ROOT/'assets/activity-readable.svg').read_text(encoding='utf-8')==svg and readme.read_text(encoding='utf-8')==content:
+    if old_header==header and old==data and (ROOT/'assets/activity-totals.svg').read_text(encoding='utf-8')==svg and readme.read_text(encoding='utf-8')==content:
         print('No activity change; no commit needed.'); return
     snapshot.parent.mkdir(exist_ok=True)
     header_path.write_text(header,encoding='utf-8')
     snapshot.write_text(canonical,encoding='utf-8')
-    (ROOT/'assets/activity-readable.svg').write_text(svg,encoding='utf-8')
+    (ROOT/'assets/activity-totals.svg').write_text(svg,encoding='utf-8')
     readme.write_text(content,encoding='utf-8')
     print('Published verified activity, contribution landscape and language bytes.')
 

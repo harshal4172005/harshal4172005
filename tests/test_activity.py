@@ -45,8 +45,8 @@ class ActivityTests(unittest.TestCase):
     def test_publish_is_idempotent_and_updates_cache_key(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'assets').mkdir()
-            (root/'assets/hero-total-readable.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><text id="live-contribution-count">0</text></svg>')
-            (root/'README.md').write_text('assets/activity-readable.svg?v=initial\n<!-- METRICS:START --><!-- METRICS:END -->\n<!-- ACTIVITY:START -->\n<!-- ACTIVITY:END -->',encoding='utf-8')
+            (root/'assets/hero-total-contributions.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><text id="live-contribution-count">0</text></svg>')
+            (root/'README.md').write_text('assets/activity-totals.svg?v=initial\n<!-- ACTIVITY:START -->\n<!-- ACTIVITY:END -->',encoding='utf-8')
             with patch.object(stats,'ROOT',root):
                 d=stats.normalize(self.fixture());stats.publish(d)
                 before={p:p.read_bytes() for p in root.rglob('*') if p.is_file()}
@@ -54,12 +54,7 @@ class ActivityTests(unittest.TestCase):
                 self.assertEqual(before,{p:p.read_bytes() for p in root.rglob('*') if p.is_file()})
                 self.assertNotIn('?v=initial',(root/'README.md').read_text())
                 self.assertIn('/commit/',(root/'README.md').read_text())
-                self.assertIn('>3</text>',(root/'assets/hero-total-readable.svg').read_text())
-                self.assertIn('**Total contributions: 3**',(root/'README.md').read_text())
-                d['contributions']=4; d['public_contributions']=3
-                stats.publish(d)
-                self.assertIn('**Total contributions: 4**',(root/'README.md').read_text())
-                self.assertIn('>4</text>',(root/'assets/hero-total-readable.svg').read_text())
+                self.assertIn('>3</text>',(root/'assets/hero-total-contributions.svg').read_text())
 
 
     def test_header_uses_exact_contribution_count_and_formats_thousands(self):

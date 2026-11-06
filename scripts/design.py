@@ -1,4 +1,4 @@
-"""Rebuild original illustrations and the readable desktop/mobile variants.
+"""Rebuild the middle sections. Original supplied hero and footer stay intact.
 Requires fonttools and the Windows fonts configured in common.py.
 """
 from sections import heading, model_card
@@ -11,5 +11,4 @@ if __name__=='__main__':
     model_card();forward_pass();inference_graph()
     runpy.run_path(str(Path(__file__).with_name('cards.py')))
     runpy.run_path(str(Path(__file__).with_name('contacts.py')))
-    runpy.run_path(str(Path(__file__).with_name('readable_design.py')),run_name='__main__')
     print('Rebuilt all profile sections.')
