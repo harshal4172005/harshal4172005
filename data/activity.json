@@ -1,5 +1,5 @@
 {
-  "contributions": 525,
+  "contributions": 526,
   "issues": 1,
   "languages": [
     {
@@ -13,7 +13,7 @@
       "name": "JavaScript"
     },
     {
-      "bytes": 135765,
+      "bytes": 150041,
       "color": "#3572A5",
       "name": "Python"
     },
@@ -62,6 +62,13 @@
   "public_repos": 13,
   "recent_commits": [
     {
+      "committedDate": "2026-11-06T17:23:04Z",
+      "messageHeadline": "Redesign profile as a living engineering fieldbook",
+      "oid": "9f0a7c8285a2be67053182d0ef62ede638690860",
+      "repo": "harshal4172005",
+      "url": "https://github.com/harshal4172005/harshal4172005/commit/9f0a7c8285a2be67053182d0ef62ede638690860"
+    },
+    {
       "committedDate": "2026-11-06T08:09:56Z",
       "messageHeadline": "feat(stats): restore classic two-card layout with single 1,050 contri…",
       "oid": "839456075b1443b459606166f31a5b6a83e0e049",
@@ -81,13 +88,6 @@
       "oid": "562a4dcd168a7eee0ac7171b17826bc872ced1f5",
       "repo": "harshal4172005",
       "url": "https://github.com/harshal4172005/harshal4172005/commit/562a4dcd168a7eee0ac7171b17826bc872ced1f5"
-    },
-    {
-      "committedDate": "2026-11-06T07:42:33Z",
-      "messageHeadline": "feat(sync): add count_private, reduce cache ttl to 30 mins, and sched…",
-      "oid": "97923824aa99046cb109e94bcfa7449f9e656278",
-      "repo": "harshal4172005",
-      "url": "https://github.com/harshal4172005/harshal4172005/commit/97923824aa99046cb109e94bcfa7449f9e656278"
     }
   ],
   "stars": 1,
@@ -1779,7 +1779,7 @@
           "date": "2026-11-05"
         },
         {
-          "contributionCount": 23,
+          "contributionCount": 24,
           "date": "2026-11-06"
         }
       ]

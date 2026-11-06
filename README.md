@@ -46,16 +46,16 @@ Experience and project impact figures are supplied by me. The activity panel bel
 
 </details>
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=39edfb470ff1" width="100%" alt="04 The living repository — GitHub contribution landscape, recent authored commits, public repository counts, stars and measured language bytes. Automatically checked every 30 minutes." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=859b599286d5" width="100%" alt="04 The living repository — GitHub contribution landscape, recent authored commits, public repository counts, stars and measured language bytes. Automatically checked every 30 minutes." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
 
 <!-- ACTIVITY:START -->
+- [9f0a7c8](https://github.com/harshal4172005/harshal4172005/commit/9f0a7c8285a2be67053182d0ef62ede638690860) · `harshal4172005` · 2026-11-06
 - [8394560](https://github.com/harshal4172005/harshal4172005/commit/839456075b1443b459606166f31a5b6a83e0e049) · `harshal4172005` · 2026-11-06
 - [e85bdd1](https://github.com/harshal4172005/harshal4172005/commit/e85bdd1b68a8c89a79dffae5b28a140ae16792c1) · `harshal4172005` · 2026-11-06
 - [562a4dc](https://github.com/harshal4172005/harshal4172005/commit/562a4dcd168a7eee0ac7171b17826bc872ced1f5) · `harshal4172005` · 2026-11-06
-- [9792382](https://github.com/harshal4172005/harshal4172005/commit/97923824aa99046cb109e94bcfa7449f9e656278) · `harshal4172005` · 2026-11-06
 <!-- ACTIVITY:END -->
 
 The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Aggregate counts may include private contributions, but private repository details are never published.
