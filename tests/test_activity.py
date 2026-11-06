@@ -14,11 +14,12 @@ class ActivityTests(unittest.TestCase):
     def fixture(self):
         commit={'oid':'abc1234','messageHeadline':'fix: <parser> & "quotes"','committedDate':'2026-11-06T00:00:00Z','url':'https://github.com/test/commit/abc1234','author':{'user':{'login':stats.USER}}}
         repo={'name':'actual-work','url':'https://github.com/test','isFork':False,'stargazerCount':2,'pushedAt':'2026-11-06T00:00:00Z','languages':{'edges':[{'size':80,'node':{'name':'Python','color':'#3572a5'}},{'size':20,'node':{'name':'C#','color':'#777777'}}]},'defaultBranchRef':{'target':{'history':{'nodes':[commit]}}}}
-        return {'repositories':{'pageInfo':{'hasNextPage':False},'nodes':[repo]},'contributionsCollection':{'contributionCalendar':{'totalContributions':3,'weeks':[{'contributionDays':[{'date':'2026-11-06','contributionCount':3}]}]},'totalPullRequestContributions':0,'totalIssueContributions':0}}
+        return {'repositories':{'pageInfo':{'hasNextPage':False},'nodes':[repo]},'contributionsCollection':{'totalCommitContributions':2,'contributionCalendar':{'totalContributions':3,'weeks':[{'contributionDays':[{'date':'2026-11-06','contributionCount':3}]}]},'totalPullRequestContributions':0,'totalIssueContributions':0}}
 
     def test_real_counts_and_unfiltered_language_bytes(self):
         d=stats.normalize(self.fixture())
         self.assertEqual(d['contributions'],3)
+        self.assertEqual(d['commits'],2)
         self.assertEqual(d['stars'],2)
         self.assertEqual(d['languages'][1]['name'],'C#')
         self.assertEqual(sum(x['bytes'] for x in d['languages']),100)
@@ -44,6 +45,7 @@ class ActivityTests(unittest.TestCase):
     def test_publish_is_idempotent_and_updates_cache_key(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'assets').mkdir()
+            (root/'assets/hero-header.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><text id="live-commit-count">0</text></svg>')
             (root/'README.md').write_text('assets/activity-field.svg?v=initial\n<!-- ACTIVITY:START -->\n<!-- ACTIVITY:END -->',encoding='utf-8')
             with patch.object(stats,'ROOT',root):
                 d=stats.normalize(self.fixture());stats.publish(d)
@@ -53,6 +55,13 @@ class ActivityTests(unittest.TestCase):
                 self.assertNotIn('?v=initial',(root/'README.md').read_text())
                 self.assertIn('/commit/',(root/'README.md').read_text())
 
+
+    def test_header_uses_exact_commit_count_and_formats_thousands(self):
+        h='<svg xmlns="http://www.w3.org/2000/svg"><text id="live-commit-count">100</text></svg>'
+        out=stats.render_header(h,1234)
+        self.assertIn('>1,234</text>',out)
+        self.assertIn('>0</text>',stats.render_header(h,0))
+        with self.assertRaises(ValueError): stats.render_header('<svg/>',3)
 
     def test_current_streak_counts_today_and_yesterday(self):
         weeks=[{'contributionDays':[{'date':'2026-11-04','contributionCount':1},{'date':'2026-11-05','contributionCount':4},{'date':'2026-11-06','contributionCount':2}]}]

@@ -6,6 +6,7 @@ import html
 import json
 import math
 import os
+import re
 from pathlib import Path
 import subprocess
 import time
@@ -15,7 +16,7 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 USER = 'harshal4172005'
 QUERY = '''query { user(login:"harshal4172005") {
-  contributionsCollection { contributionCalendar { totalContributions weeks {
+  contributionsCollection { totalCommitContributions contributionCalendar { totalContributions weeks {
     contributionDays { date contributionCount }
   } } totalPullRequestContributions totalIssueContributions }
   repositories(first:100,privacy:PUBLIC,ownerAffiliations:OWNER,
@@ -99,6 +100,7 @@ def normalize(user):
     for c in commits: unique.setdefault(c['oid'],c)
     coll=user['contributionsCollection']
     return {'streaks':streaks(coll['contributionCalendar']['weeks']),
+            'commits':coll['totalCommitContributions'],
             'contributions':coll['contributionCalendar']['totalContributions'],
             'weeks':coll['contributionCalendar']['weeks'],
             'prs':coll['totalPullRequestContributions'],
@@ -159,23 +161,37 @@ def render(data):
     c+=t('Commits: latest 12 per default branch. Languages: code size; top 20 per public owned non-fork repository.',32,1017,10,'#8b8b95')
     return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1040" viewBox="0 0 1200 1040" role="img"><title>Live GitHub activity and daily contribution streaks for Harshal Parekh</title><style>text{font-family:Consolas,monospace}</style><rect width="1200" height="1040" rx="14" fill="#09090b"/><rect x=".5" y=".5" width="1199" height="1039" rx="14" fill="none" stroke="#27272a"/>'+c+'</svg>'
 
+def render_header(header, commits):
+    updated, matches = re.subn(r'(<text id="live-commit-count"[^>]*>)[^<]*(</text>)',
+                               lambda m: m[1] + f'{commits:,}' + m[2], header)
+    if matches != 1:
+        raise ValueError('Expected one live commit counter in the hero SVG')
+    ET.fromstring(updated)
+    return updated
+
 def publish(data):
     snapshot=ROOT/'data/activity.json'
     canonical=json.dumps(data,sort_keys=True,ensure_ascii=False,indent=2)+'\n'
     old=json.loads(snapshot.read_text(encoding='utf-8')) if snapshot.exists() else None
     svg=render(data); ET.fromstring(svg)
+    header_path=ROOT/'assets/hero-header.svg'
+    old_header=header_path.read_text(encoding='utf-8')
+    header=render_header(old_header,data['commits'])
     readme=ROOT/'README.md'; content=readme.read_text(encoding='utf-8')
     digest=hashlib.sha256(canonical.encode()).hexdigest()[:12]
     import re
     content=re.sub(r'assets/activity-field\.svg\?v=[a-zA-Z0-9]+',f'assets/activity-field.svg?v={digest}',content)
+    header_digest=hashlib.sha256(header.encode()).hexdigest()[:12]
+    content=re.sub(r'assets/hero-header\.svg\?v=[a-zA-Z0-9]+',f'assets/hero-header.svg?v={header_digest}',content)
     start='<!-- ACTIVITY:START -->'; end='<!-- ACTIVITY:END -->'
     links='\n'.join(f'- [{c["oid"][:7]}]({c["url"]}) · `{c["repo"]}` · {c["committedDate"][:10]}' for c in data['recent_commits'])
     if start in content and end in content:
         a,b=content.split(start,1); _,z=b.split(end,1)
         content=a+start+'\n'+links+'\n'+end+z
-    if old==data and (ROOT/'assets/activity-field.svg').read_text(encoding='utf-8')==svg and readme.read_text(encoding='utf-8')==content:
+    if old_header==header and old==data and (ROOT/'assets/activity-field.svg').read_text(encoding='utf-8')==svg and readme.read_text(encoding='utf-8')==content:
         print('No activity change; no commit needed.'); return
     snapshot.parent.mkdir(exist_ok=True)
+    header_path.write_text(header,encoding='utf-8')
     snapshot.write_text(canonical,encoding='utf-8')
     (ROOT/'assets/activity-field.svg').write_text(svg,encoding='utf-8')
     readme.write_text(content,encoding='utf-8')

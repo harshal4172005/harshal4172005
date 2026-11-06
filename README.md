@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=claude2" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=121b82ea3836" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -13,7 +13,7 @@
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-01.svg?v=claude2" width="100%" alt="01 Model card — about the engineer" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/model-card.svg?v=growth1" width="100%" alt="AI engineer and systems developer. NexAI Labs production diffusion; BE Computer Engineering, CGPA 8.41; 22 Google Cloud skill badges. Open to roles worldwide. The rising learning curve illustrates growth from Python foundations through APIs, vision and generative AI to production systems." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/model-card.svg?v=ascent2" width="100%" alt="AI engineer and systems developer. NexAI Labs production diffusion; BE Computer Engineering, CGPA 8.41; 22 Google Cloud skill badges. Open to roles worldwide. The rising learning curve illustrates growth from Python foundations through APIs, vision and generative AI to production systems." />
 
 <details>
 <summary>Background, in plain text</summary>
@@ -63,7 +63,7 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=840e760e6dc8" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. API totals may differ from signed-in totals." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-field.svg?v=8c5179eb6609" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. API totals may differ from signed-in totals." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
@@ -80,6 +80,8 @@ The landscape is built from the past year's contribution calendar. Each ridge re
 The commit feed samples your latest 12 commits per public default branch and shows the four most recent authored commits. Language share measures code bytes across public owned non-fork repositories, using each repo's top 20 languages; it isn't a skill rating. No languages are hidden to inflate a percentage.
 
 **Daily streaks:** today's contributions, current streak, longest streak in the past year, and active days are recalculated on each refresh. Streaks use GitHub calendar dates (UTC). If you contributed yesterday, your current streak stays alive while today is still open; a missed day resets it. Only contributions included by GitHub's API count, so an unmerged feature-branch commit may not appear yet.
+
+**Header commits:** the header shows GitHub API-visible commit contributions over the past year, separately from total contributions (which also include other activity). The counter refreshes automatically with the dashboard; private commits need a user token with the required access.
 
 **Refresh behavior:** pushes to this profile trigger a rebuild. Activity in other public repositories is checked at minutes 17 and 47 each hour; GitHub may delay scheduled runs and cache refreshed images. Branch commits appear in the feed when they reach a default branch. Manual refresh: [Living engineering profile](https://github.com/harshal4172005/harshal4172005/actions/workflows/update-stats.yml). A `repository_dispatch` event of type `profile-activity` can also trigger a refresh.
 

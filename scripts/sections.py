@@ -43,24 +43,40 @@ def model_card():
         A(segs(items,196,y,'mono',12)[0])
     A(segs([('from ',VIO),('transformers ',INK),('import ',VIO),('pipeline ',IND),(' # just kidding, it is a person.',DIM)],44,418,'mono',11.5)[0])
     A('<rect x="750" y="80" width="420" height="332" rx="12" fill="#0d0d12" stroke="#27272a"/>')
-    A(P('LEARNING CURVE · capabilities in practice','mono',9.5,770,101,fill=DIM,ls=.2))
-    A('<defs><linearGradient id="growth-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a78bfa" stop-opacity=".15"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs>')
-    milestones=[(780,337,'Python'),(868,292,'APIs'),(958,246,'Vision'),(1052,192,'GenAI'),(1147,138,'Production')]
-    d='M780 337C810 331 839 307 868 292S927 265 958 246S1020 215 1052 192S1119 155 1147 138'
+    A(P('CAPABILITY ASCENT','mono-b',11,770,102,fill=VIO,ls=.8))
+    A(P('LEARN -> SHIP','mono',8,1150,102,fill=DIM,anchor='end',ls=.6))
+    A('<defs><linearGradient id="growth-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a78bfa" stop-opacity=".13"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/></linearGradient><linearGradient id="ascent" gradientUnits="userSpaceOnUse" x1="780" y1="336" x2="1147" y2="146"><stop stop-color="#818cf8"/><stop offset=".65" stop-color="#c084fc"/><stop offset="1" stop-color="#b6ed47"/></linearGradient></defs>')
     for yy in [160,220,280,340]:
         A(f'<path d="M770 {yy}H1150" stroke="#27272a" stroke-dasharray="2 6" opacity=".45"/>')
-    A(f'<path d="{d}L1147 349H780Z" fill="url(#growth-fill)"/>')
-    A(f'<path d="{d}" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-linecap="round"/>')
-    A(f'<circle r="3" fill="{INK}"><animateMotion path="{d}" dur="6s" repeatCount="indefinite"/></circle>')
-    for xx,yy,label in milestones:
-        A(f'<path d="M{xx} {yy+8}V356" stroke="#818cf8" stroke-opacity=".2" stroke-dasharray="2 5"/>')
-        A(f'<circle cx="{xx}" cy="{yy}" r="3.5" fill="{BG}" stroke="{VIO}" stroke-width="1.5"/>')
-        anchor='end' if label=='Production' else 'start' if label=='Python' else 'middle'
+    def trajectory(phase=None):
+        pts=[]
+        for i in range(101):
+            t=i/100
+            xx=780+367*t;yy=336-190*t**.95
+            if phase is not None: yy+=13*math.sin(math.pi*t)*math.sin(t*11+phase)
+            pts.append((xx,yy))
+        return 'M'+' L'.join(f'{x:.2f} {y:.2f}' for x,y in pts)
+    central=trajectory()
+    A(f'<path d="{central}L1147 351H780Z" fill="url(#growth-fill)"/>')
+    for i,(phase,color) in enumerate([(0,IND),(2.1,VIO),(4.2,CYAN)]):
+        d=trajectory(phase)
+        A(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="1" opacity=".55"/>')
+        for k in range(2):
+            A(f'<circle r="2" fill="{color}"><animateMotion path="{d}" begin="{-i-k*3}s" dur="6s" repeatCount="indefinite"/></circle>')
+    A(f'<path d="{central}" fill="none" stroke="url(#ascent)" stroke-width="2.1" stroke-linecap="round"/>')
+    for i,(t,label) in enumerate([(0,'Python'),(.24,'APIs'),(.49,'Vision'),(.74,'GenAI'),(1,'Production')]):
+        xx=780+367*t;yy=336-190*t**.95
+        A(f'<path d="M{xx} {yy+10}V357" stroke="#818cf8" stroke-opacity=".2" stroke-dasharray="2 5"/>')
+        A(f'<circle cx="{xx}" cy="{yy}" r="8" fill="{VIO}" opacity=".07"/>')
+        A(f'<circle cx="{xx}" cy="{yy}" r="4" fill="{BG}" stroke="{VIO}" stroke-width="1.5"/>')
+        if i in [1,2,3]:
+            A(f'<g transform="translate({xx} {yy})"><circle r="11" fill="none" stroke="{VIO}" opacity=".2" stroke-dasharray="2 4"/><g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="{8+i}s" repeatCount="indefinite"/><circle cx="11" cy="0" r="1.6" fill="{CYAN}"/></g></g>')
+        anchor='end' if i==4 else 'start' if i==0 else 'middle'
         A(P(label,'mono',9.5,xx,380,fill=MID,anchor=anchor))
-    A(f'<circle cx="1147" cy="138" r="8" fill="{LIME}" opacity=".15"><animate attributeName="r" values="5;12;5" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="1147" cy="138" r="4" fill="{LIME}"/>')
-    A(P('BUILDING ON WHAT I KNOW','mono-b',9.5,1148,122,fill=LIME,anchor='end'))
-    A(P('Learning -> building -> shipping','mono',10,770,402,fill=VIO))
-    A(P('Illustrative','mono',9,1150,402,fill=DIM,anchor='end'))
+    A(f'<circle cx="1147" cy="146" r="9" fill="none" stroke="{LIME}" opacity=".7"><animate attributeName="r" values="5;16;5" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0;.7" dur="3s" repeatCount="indefinite"/></circle><circle cx="1147" cy="146" r="4" fill="{LIME}"/>')
+    A(P('STILL BUILDING. STILL LEARNING.','mono-b',8,1148,124,fill=LIME,anchor='end',ls=.15))
+    A(P('knowledge compounds with every build','mono',9,770,402,fill=VIO))
+    A(P('Illustrative','mono',8,1150,402,fill=DIM,anchor='end'))
     save(o,'model-card.svg')
 
 if __name__=='__main__':
