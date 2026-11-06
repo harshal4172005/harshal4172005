@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-header.svg?v=b17d3b580cbb" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-live-commits.svg?v=b17d3b580cbb" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -13,7 +13,7 @@
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-01.svg?v=claude2" width="100%" alt="01 Model card — about the engineer" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/model-card.svg?v=ascent2" width="100%" alt="AI engineer and systems developer. NexAI Labs production diffusion; BE Computer Engineering, CGPA 8.41; 22 Google Cloud skill badges. Open to roles worldwide. The rising learning curve illustrates growth from Python foundations through APIs, vision and generative AI to production systems." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/capability-ascent.svg?v=ascent2" width="100%" alt="AI engineer and systems developer. NexAI Labs production diffusion; BE Computer Engineering, CGPA 8.41; 22 Google Cloud skill badges. Open to roles worldwide. The rising learning curve illustrates growth from Python foundations through APIs, vision and generative AI to production systems." />
 
 <details>
 <summary>Background, in plain text</summary>

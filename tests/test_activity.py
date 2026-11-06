@@ -45,7 +45,7 @@ class ActivityTests(unittest.TestCase):
     def test_publish_is_idempotent_and_updates_cache_key(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'assets').mkdir()
-            (root/'assets/hero-header.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><text id="live-commit-count">0</text></svg>')
+            (root/'assets/hero-live-commits.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><text id="live-commit-count">0</text></svg>')
             (root/'README.md').write_text('assets/activity-field.svg?v=initial\n<!-- ACTIVITY:START -->\n<!-- ACTIVITY:END -->',encoding='utf-8')
             with patch.object(stats,'ROOT',root):
                 d=stats.normalize(self.fixture());stats.publish(d)

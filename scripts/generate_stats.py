@@ -174,7 +174,7 @@ def publish(data):
     canonical=json.dumps(data,sort_keys=True,ensure_ascii=False,indent=2)+'\n'
     old=json.loads(snapshot.read_text(encoding='utf-8')) if snapshot.exists() else None
     svg=render(data); ET.fromstring(svg)
-    header_path=ROOT/'assets/hero-header.svg'
+    header_path=ROOT/'assets/hero-live-commits.svg'
     old_header=header_path.read_text(encoding='utf-8')
     header=render_header(old_header,data['commits'])
     readme=ROOT/'README.md'; content=readme.read_text(encoding='utf-8')
@@ -182,7 +182,7 @@ def publish(data):
     import re
     content=re.sub(r'assets/activity-field\.svg\?v=[a-zA-Z0-9]+',f'assets/activity-field.svg?v={digest}',content)
     header_digest=hashlib.sha256(header.encode()).hexdigest()[:12]
-    content=re.sub(r'assets/hero-header\.svg\?v=[a-zA-Z0-9]+',f'assets/hero-header.svg?v={header_digest}',content)
+    content=re.sub(r'assets/hero-live-commits\.svg\?v=[a-zA-Z0-9]+',f'assets/hero-live-commits.svg?v={header_digest}',content)
     start='<!-- ACTIVITY:START -->'; end='<!-- ACTIVITY:END -->'
     links='\n'.join(f'- [{c["oid"][:7]}]({c["url"]}) · `{c["repo"]}` · {c["committedDate"][:10]}' for c in data['recent_commits'])
     if start in content and end in content:

@@ -77,7 +77,7 @@ def model_card():
     A(P('STILL BUILDING. STILL LEARNING.','mono-b',8,1148,124,fill=LIME,anchor='end',ls=.15))
     A(P('knowledge compounds with every build','mono',9,770,402,fill=VIO))
     A(P('Illustrative','mono',8,1150,402,fill=DIM,anchor='end'))
-    save(o,'model-card.svg')
+    save(o,'capability-ascent.svg')
 
 if __name__=='__main__':
     for args in [('01','Model card','about.md',"who is behind the weights"),('02','Forward pass','stack/','the tools, connected'),('03','Inference graph','production/','NexAI Labs in production'),('04','Detections','projects/',"things I have shipped"),('05','Live signal','activity/','generated from GitHub')]:heading(*args)

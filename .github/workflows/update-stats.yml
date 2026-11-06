@@ -37,7 +37,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/hero-header.svg assets/activity-field.svg data/activity.json README.md
+          git add assets/hero-live-commits.svg assets/activity-field.svg data/activity.json README.md
           if ! git diff --cached --quiet; then
             git commit -m 'chore(activity): refresh engineering field'
             git pull --rebase origin main
