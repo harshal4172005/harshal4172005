@@ -88,7 +88,7 @@ Client Prompt / Media
 
 <img height="160" src="https://github-stats-extended.vercel.app/api?username=harshal4172005&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&icon_color=818cf8&text_color=a1a1aa&hide_rank=true&count_private=true&cache_seconds=1800" alt="GitHub Stats"/>
 &nbsp;
-<img height="160" src="https://github-stats-extended.vercel.app/api/top-langs/?username=harshal4172005&layout=compact&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&text_color=a1a1aa&langs_count=8&hide=c%23,html,css&cache_seconds=1800" alt="Top Languages"/>
+<img height="160" src="https://github-stats-extended.vercel.app/api/top-langs/?username=harshal4172005&layout=compact&theme=midnight-purple&hide_border=true&bg_color=09090b&title_color=818cf8&text_color=a1a1aa&langs_count=8&hide=javascript,c%23,html,css,batchfile,powershell,shell&cache_seconds=1800" alt="Top Languages"/>
 
 <br/>
 
