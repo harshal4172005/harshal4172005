@@ -13,7 +13,7 @@
       "name": "JavaScript"
     },
     {
-      "bytes": 169317,
+      "bytes": 169777,
       "color": "#3572A5",
       "name": "Python"
     },
@@ -62,6 +62,13 @@
   "public_repos": 13,
   "recent_commits": [
     {
+      "committedDate": "2026-11-06T17:58:02Z",
+      "messageHeadline": "Show engineering growth as a rising learning curve",
+      "oid": "7865149e10f12b98faecfb050e34a3530a8c6ea6",
+      "repo": "harshal4172005",
+      "url": "https://github.com/harshal4172005/harshal4172005/commit/7865149e10f12b98faecfb050e34a3530a8c6ea6"
+    },
+    {
       "committedDate": "2026-11-06T17:55:05Z",
       "messageHeadline": "Replace plain contact links with matching animated contact cards",
       "oid": "28979d8aaba95633e08feadc8a85613612854265",
@@ -81,13 +88,6 @@
       "oid": "9f0a7c8285a2be67053182d0ef62ede638690860",
       "repo": "harshal4172005",
       "url": "https://github.com/harshal4172005/harshal4172005/commit/9f0a7c8285a2be67053182d0ef62ede638690860"
-    },
-    {
-      "committedDate": "2026-11-06T08:09:56Z",
-      "messageHeadline": "feat(stats): restore classic two-card layout with single 1,050 contri…",
-      "oid": "839456075b1443b459606166f31a5b6a83e0e049",
-      "repo": "harshal4172005",
-      "url": "https://github.com/harshal4172005/harshal4172005/commit/839456075b1443b459606166f31a5b6a83e0e049"
     }
   ],
   "stars": 1,
