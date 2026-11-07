@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=e54b04a39bea" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=92db8847810f" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -63,16 +63,16 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=14df42dfc641" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=2790e5aa6df1" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
 
 <!-- ACTIVITY:START -->
-- [b5c803a](https://github.com/harshal4172005/harshal4172005/commit/b5c803acdf8c54e922d5c8d21cce8fbc311982c3) · `harshal4172005` · 2026-11-07
-- [befae83](https://github.com/harshal4172005/multimodal-ai-research-rag/commit/befae83e5b3800d2f82f78bb3977081866157855) · `multimodal-ai-research-rag` · 2026-11-07
-- [7ffe670](https://github.com/harshal4172005/multimodal-ai-research-rag/commit/7ffe67070bfee8a5fd33ea82d966299f81b36836) · `multimodal-ai-research-rag` · 2026-11-07
-- [d52dd8c](https://github.com/harshal4172005/harshal4172005/commit/d52dd8c82e9fd72904ddf7130875dd603aeb4408) · `harshal4172005` · 2026-11-06
+- [26be081](https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/26be081395662581c7d79d39302f12a65ea36aa2) · `Prism-AI-Paper-Learning-Studio` · 2026-11-07
+- [b86709a](https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/b86709a0787b615cb1f22c4ce4b6120894f8783c) · `Prism-AI-Paper-Learning-Studio` · 2026-11-07
+- [cc012ce](https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/cc012ce3eeaeaaf3a47e593e711b1547d7bd6c6e) · `Prism-AI-Paper-Learning-Studio` · 2026-11-07
+- [c69a0fc](https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/c69a0fcce1759203388efb6d0e94d8dc924f1bb1) · `Prism-AI-Paper-Learning-Studio` · 2026-11-07
 <!-- ACTIVITY:END -->
 
 The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts include public and shared private activity; private repository details are never published.
