@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=a2877e2101da" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=062c9f5d85d9" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -63,7 +63,7 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=4372e0d09937" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=06d400b3da35" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
