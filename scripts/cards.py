@@ -58,51 +58,33 @@ card("card-erp.svg", "01 / C# · .NET", "REAL-TIME", LIME, "Gaming Café", "ERP"
      ["100+ PCs across branches, synced live.", "Remote lock / unlock agent per seat."],
      "".join(s), "signalr://hub · broadcast", "100+ nodes")
 
-# ---------------- RAG scene ----------------
+# ---------------- Prism learning studio scene ----------------
 s = []
-px, py = SX + 26, SY + 36
-s.append(f'<rect x="{px}" y="{py}" width="96" height="128" rx="4" fill="#111114" stroke="#3f3f46"/>')
-for i in range(5):
-    s.append(f'<rect x="{px + 10}" y="{py + 12 + i * 8}" width="{random.randint(48, 76)}" height="3" rx="1.5" fill="#3f3f46"/>')
-# figure
-fx, fy = px + 10, py + 58
-s.append(f'<rect x="{fx}" y="{fy}" width="76" height="40" rx="2" fill="none" stroke="{VIO}" stroke-opacity="0.7" stroke-dasharray="2 2"/>')
-for i, hgt in enumerate([14, 24, 18, 30, 22]):
-    s.append(f'<rect x="{fx + 8 + i * 13}" y="{fy + 36 - hgt}" width="8" height="{hgt}" fill="{VIO}" opacity="0.7"/>')
-s.append(P("fig.3", "mono", 7.5, fx + 2, fy - 3, fill=VIO))
-for i in range(3):
-    s.append(f'<rect x="{px + 10}" y="{py + 106 + i * 7}" width="{random.randint(40, 76)}" height="3" rx="1.5" fill="#3f3f46"/>')
-s.append(f'<rect x="{px - 4}" y="{py}" width="104" height="2" fill="{LIME}" opacity="0.8" filter="url(#glow)">'
-         f'<animate attributeName="y" values="{py};{py + 126};{py}" dur="3s" repeatCount="indefinite"/></rect>')
-# vector space
-vx, vy, vw, vh = SX + 200, SY + 38, 150, 128
-s.append(f'<rect x="{vx}" y="{vy}" width="{vw}" height="{vh}" rx="6" fill="none" stroke="#27272a" stroke-dasharray="2 4"/>')
-pts = [(vx + random.uniform(10, vw - 10), vy + random.uniform(10, vh - 10)) for _ in range(34)]
-q = (vx + 92, vy + 60)
-near = sorted(range(len(pts)), key=lambda i: (pts[i][0] - q[0]) ** 2 + (pts[i][1] - q[1]) ** 2)[:3]
-for i, (x, y) in enumerate(pts):
-    s.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.2" fill="{IND}" opacity="0.55"/>')
-for i in near:
-    x, y = pts[i]
-    s.append(f'<path d="M{q[0]} {q[1]}L{x:.1f} {y:.1f}" stroke="{LIME}" stroke-width="1" opacity="0">'
-             f'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.55;0.62;0.92;1" dur="4s" repeatCount="indefinite"/></path>')
-    s.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.5" fill="{LIME}" opacity="0">'
-             f'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.6;0.65;0.92;1" dur="4s" repeatCount="indefinite"/></circle>')
-s.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.45;0.5;0.92;1" dur="4s" repeatCount="indefinite"/>'
-         f'<path d="M{q[0]} {q[1] - 6}l1.8 4.2 4.2 1.8-4.2 1.8-1.8 4.2-1.8-4.2-4.2-1.8 4.2-1.8z" fill="{AMB}"/>'
-         + P("query", "mono", 8, q[0] + 8, q[1] - 6, fill=AMB) + '</g>')
-s.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.7;0.75;0.92;1" dur="4s" repeatCount="indefinite"/>'
-         + P("top_k=3 -> answer", "mono", 8.5, vx + vw - 4, vy + vh + 12, fill=LIME, anchor="end") + '</g>')
-# chunks flying page -> space
-for k in range(5):
-    tgt = pts[k * 5]
-    s.append(f'<rect width="10" height="6" rx="1" fill="{VIO}" opacity="0">'
-             f'<animateMotion path="M{px + 96} {py + 30 + k * 18}C{px + 150} {py + 30 + k * 18} {tgt[0] - 40:.0f} {tgt[1]:.0f} {tgt[0]:.0f} {tgt[1]:.0f}" dur="4s" begin="{k * 0.18:.2f}s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;0.05;0.35;1" calcMode="linear"/>'
-             f'<animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.33;0.36;1" dur="4s" begin="{k * 0.18:.2f}s" repeatCount="indefinite"/></rect>')
-card("card-rag.svg", "02 / PYTHON", "MULTIMODAL", VIO, "Multimodal", "RAG",
-     "LangChain · FastAPI · Gemini · Qdrant",
-     ["Research-paper QA that reads the figures.", "Gemini Vision captions + Groq/NVIDIA chain."],
-     "".join(s), "pdf -> chunks -> qdrant", "gemini-vision")
+# An original page feeds an explanation, then a browser experiment.
+s.append(f'<rect x="34" y="56" width="83" height="124" rx="5" fill="#111114" stroke="#3f3f46"/>')
+s.append(P("PAPER", "mono", 8, 44, 72, fill=DIM, ls=1))
+for i, w in enumerate([61, 54, 60, 42]):
+    s.append(f'<rect x="44" y="{82+i*7}" width="{w}" height="2" rx="1" fill="#52525b"/>')
+for i, h in enumerate([12, 24, 19, 31, 16]):
+    s.append(f'<rect x="{44+i*12}" y="{149-h}" width="7" height="{h}" rx="1" fill="{VIO}" opacity=".7"/>')
+s.append(P("ORIGINAL PAGE", "mono", 6.5, 43, 166, fill=DIM))
+s.append(f'<rect x="30" y="77" width="91" height="2" fill="{LIME}" opacity=".7"><animate attributeName="y" values="77;154;77" dur="6s" repeatCount="indefinite"/></rect>')
+s.append(f'<path d="M117 113H138V89H151M259 125V142" stroke="{IND}" stroke-opacity=".55" fill="none"/>')
+s.append(f'<rect x="151" y="56" width="212" height="69" rx="6" fill="#101015" stroke="#34313f"/>')
+s.append(P("LET\'S MAKE IT CLEAR", "mono", 8, 163, 73, fill=VIO, ls=.5))
+for i,w in enumerate([179,166,125]):
+    s.append(f'<rect x="163" y="{83+i*8}" width="{w}" height="2.5" rx="1" fill="#71717a"><animate attributeName="opacity" values=".3;.85;.3" dur="5s" begin="{i*.3}s" repeatCount="indefinite"/></rect>')
+s.append(f'<rect x="151" y="142" width="212" height="43" rx="6" fill="#0e1210" stroke="{LIME}" stroke-opacity=".3"/>')
+s.append(P("TRY THE IDEA", "mono", 7.5, 162, 157, fill=LIME, ls=.5))
+s.append(P("5 LABS", "mono", 7, 351, 157, fill=DIM, anchor="end"))
+for i,h in enumerate([3,7,5,15,10,8,12,6]):
+    s.append(f'<rect x="{163+i*23}" y="{177-h}" width="16" height="{h}" rx="1" fill="{LIME}" opacity=".6"/>')
+s.append(f'<circle r="2.7" fill="{VIO}"><animateMotion path="M117 113H138V89H151" dur="3s" repeatCount="indefinite"/></circle>')
+s.append(f'<circle r="2.5" fill="{LIME}"><animateMotion path="M259 125V142" dur="3s" repeatCount="indefinite"/></circle>')
+card("card-prism.svg", "02 / PYTHON", "PAPER STUDIO", VIO, "Prism", "Studio",
+     "FastAPI · Gemini · SQLite · JavaScript",
+     ["Your papers. Clearer explanations.", "Saved chats, sources + 5 learning labs."],
+     "".join(s), "pdf -> understand -> experiment", "prism")
 
 # ---------------- CCTV scene ----------------
 s = []
