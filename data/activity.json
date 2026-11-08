@@ -1,6 +1,6 @@
 {
-  "commits": 538,
-  "contributions": 1077,
+  "commits": 541,
+  "contributions": 1080,
   "issues": 1,
   "languages": [
     {
@@ -61,46 +61,46 @@
   ],
   "private_contributions": 529,
   "prs": 1,
-  "public_contributions": 548,
+  "public_contributions": 551,
   "public_repos": 13,
   "recent_commits": [
+    {
+      "committedDate": "2026-11-08T07:17:33Z",
+      "messageHeadline": "Update content.json via admin panel",
+      "oid": "de61f9e000073d6c3830fcae1b0e106baf97073d",
+      "repo": "harshal-parekh-potfolio",
+      "url": "https://github.com/harshal4172005/harshal-parekh-potfolio/commit/de61f9e000073d6c3830fcae1b0e106baf97073d"
+    },
+    {
+      "committedDate": "2026-11-08T07:17:25Z",
+      "messageHeadline": "Update content.json via admin panel",
+      "oid": "ba34c677458112bb1852c2e8e2885378aaade2db",
+      "repo": "harshal-parekh-potfolio",
+      "url": "https://github.com/harshal4172005/harshal-parekh-potfolio/commit/ba34c677458112bb1852c2e8e2885378aaade2db"
+    },
+    {
+      "committedDate": "2026-11-08T07:17:19Z",
+      "messageHeadline": "Upload resume.pdf via admin panel",
+      "oid": "40b5fb5a5d7fd7cb370e554b35d34b45e49645af",
+      "repo": "harshal-parekh-potfolio",
+      "url": "https://github.com/harshal4172005/harshal-parekh-potfolio/commit/40b5fb5a5d7fd7cb370e554b35d34b45e49645af"
+    },
     {
       "committedDate": "2026-11-07T15:30:03Z",
       "messageHeadline": "Keep reply position stable as images and conversation content finish …",
       "oid": "26be081395662581c7d79d39302f12a65ea36aa2",
       "repo": "Prism-AI-Paper-Learning-Studio",
       "url": "https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/26be081395662581c7d79d39302f12a65ea36aa2"
-    },
-    {
-      "committedDate": "2026-11-07T15:26:30Z",
-      "messageHeadline": "Preserve the active reply anchor when the reader or viewport resizes",
-      "oid": "b86709a0787b615cb1f22c4ce4b6120894f8783c",
-      "repo": "Prism-AI-Paper-Learning-Studio",
-      "url": "https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/b86709a0787b615cb1f22c4ce4b6120894f8783c"
-    },
-    {
-      "committedDate": "2026-11-07T15:23:33Z",
-      "messageHeadline": "Keep new questions and answer openings visible across desktop and mobile",
-      "oid": "cc012ce3eeaeaaf3a47e593e711b1547d7bd6c6e",
-      "repo": "Prism-AI-Paper-Learning-Studio",
-      "url": "https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/cc012ce3eeaeaaf3a47e593e711b1547d7bd6c6e"
-    },
-    {
-      "committedDate": "2026-11-07T12:50:18Z",
-      "messageHeadline": "Keep mobile conversation status consistent when opening saved chats",
-      "oid": "c69a0fcce1759203388efb6d0e94d8dc924f1bb1",
-      "repo": "Prism-AI-Paper-Learning-Studio",
-      "url": "https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/c69a0fcce1759203388efb6d0e94d8dc924f1bb1"
     }
   ],
   "stars": 1,
   "streaks": {
-    "active_days": 85,
+    "active_days": 86,
     "as_of": "2026-11-08",
     "calendar_timezone": "UTC",
-    "current": 4,
+    "current": 5,
     "longest": 15,
-    "today": 0
+    "today": 3
   },
   "weeks": [
     {
@@ -1770,7 +1770,7 @@
     {
       "contributionDays": [
         {
-          "contributionCount": 0,
+          "contributionCount": 3,
           "date": "2026-11-08"
         }
       ]
