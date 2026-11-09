@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=92db8847810f" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/hero-total-contributions.svg?v=2464e9403f2d" width="100%" alt="Harshal Parekh — animated diffusion-to-detection identity. AI engineering, vision and multimodal RAG." />
 
 <p align="center">
 <a href="mailto:harshalparekh17@gmail.com"><img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/contact-email.svg?v=1" width="24%" alt="Email Harshal Parekh" /></a>
@@ -63,16 +63,16 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=cebd16d8fb83" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=8ecf76255a7e" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
 
 <!-- ACTIVITY:START -->
+- [4a8a69a](https://github.com/harshal4172005/harshal-parekh-potfolio/commit/4a8a69aa16a50743255532f9abb9bc74e9808c1e) · `harshal-parekh-potfolio` · 2026-11-09
+- [a5f0d36](https://github.com/harshal4172005/harshal-parekh-potfolio/commit/a5f0d364a0755d318227ae012ab3e9e508a36bac) · `harshal-parekh-potfolio` · 2026-11-09
 - [de61f9e](https://github.com/harshal4172005/harshal-parekh-potfolio/commit/de61f9e000073d6c3830fcae1b0e106baf97073d) · `harshal-parekh-potfolio` · 2026-11-08
 - [ba34c67](https://github.com/harshal4172005/harshal-parekh-potfolio/commit/ba34c677458112bb1852c2e8e2885378aaade2db) · `harshal-parekh-potfolio` · 2026-11-08
-- [40b5fb5](https://github.com/harshal4172005/harshal-parekh-potfolio/commit/40b5fb5a5d7fd7cb370e554b35d34b45e49645af) · `harshal-parekh-potfolio` · 2026-11-08
-- [26be081](https://github.com/harshal4172005/Prism-AI-Paper-Learning-Studio/commit/26be081395662581c7d79d39302f12a65ea36aa2) · `Prism-AI-Paper-Learning-Studio` · 2026-11-07
 <!-- ACTIVITY:END -->
 
 The landscape is built from the past year's contribution calendar. Each ridge represents a week; its height follows actual daily contribution counts. Counts include public and shared private activity; private repository details are never published.
