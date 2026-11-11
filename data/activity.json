@@ -96,9 +96,9 @@
   "stars": 1,
   "streaks": {
     "active_days": 87,
-    "as_of": "2026-11-10",
+    "as_of": "2026-11-11",
     "calendar_timezone": "UTC",
-    "current": 6,
+    "current": 0,
     "longest": 15,
     "today": 0
   },
@@ -1780,6 +1780,10 @@
         {
           "contributionCount": 0,
           "date": "2026-11-10"
+        },
+        {
+          "contributionCount": 0,
+          "date": "2026-11-11"
         }
       ]
     }
