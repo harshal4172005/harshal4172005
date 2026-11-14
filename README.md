@@ -63,7 +63,7 @@ The animations illustrate system behavior. They are not live camera feeds, model
 
 <img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/sec-05.svg?v=claude2" width="100%" alt="05 Live signal — automatically generated GitHub activity" />
 
-<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=8b5e410f9acc" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
+<img src="https://raw.githubusercontent.com/harshal4172005/harshal4172005/main/assets/activity-totals.svg?v=7a1493f30747" width="100%" alt="Verified GitHub API activity: contribution topography, daily contribution count, current and longest streaks, active days, recent authored commits, public repositories, stars and measured language bytes. Includes shared private contributions as anonymous counts." />
 
 <details>
 <summary>Open the latest commits / how this updates</summary>
