@@ -96,45 +96,13 @@
   "stars": 1,
   "streaks": {
     "active_days": 87,
-    "as_of": "2026-11-14",
+    "as_of": "2026-11-15",
     "calendar_timezone": "UTC",
     "current": 0,
     "longest": 15,
     "today": 0
   },
   "weeks": [
-    {
-      "contributionDays": [
-        {
-          "contributionCount": 0,
-          "date": "2025-11-09"
-        },
-        {
-          "contributionCount": 0,
-          "date": "2025-11-10"
-        },
-        {
-          "contributionCount": 0,
-          "date": "2025-11-11"
-        },
-        {
-          "contributionCount": 0,
-          "date": "2025-11-12"
-        },
-        {
-          "contributionCount": 0,
-          "date": "2025-11-13"
-        },
-        {
-          "contributionCount": 0,
-          "date": "2025-11-14"
-        },
-        {
-          "contributionCount": 0,
-          "date": "2025-11-15"
-        }
-      ]
-    },
     {
       "contributionDays": [
         {
@@ -1796,6 +1764,14 @@
         {
           "contributionCount": 0,
           "date": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "contributionDays": [
+        {
+          "contributionCount": 0,
+          "date": "2026-11-15"
         }
       ]
     }
